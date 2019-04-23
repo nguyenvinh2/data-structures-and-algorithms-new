@@ -44,6 +44,7 @@ const addNumbers = (num, arr, times, callback) => {
   for(let i = 0; i < times; i++) {
     callback(arr, num);
   }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,10 +61,17 @@ Return the modified array.
 
 const removeOne = (num, arr) => {
   // Solution code here...
+  if(num%3===2) {
+    arr.pop(num);
+  }
 };
 
 const removeElements = (arr, callback) => {
   // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], arr);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,6 +82,10 @@ Write a function named removeWithForEach that produces the same output as challe
 
 const removeWithForEach = (arr, callback) => {
   // Solution code here...
+  arr.forEach(element => {
+    callback(element, arr);
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,6 +100,12 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   // Solution code here...
+  arr.forEach((element, index, arr) => {
+    if(element%3===2) {
+      arr.pop(element);
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,6 +127,13 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  const groceryList = [];
+  availableItems.forEach(item => {
+    if(item.available) {
+      groceryList.push(item);
+    }
+  });
+  return groceryList;
 };
 
 /* ------------------------------------------------------------------------------------------------
