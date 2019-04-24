@@ -47,6 +47,7 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
+  return arr.sort((a,b)=>a.localeCompare(b, 'en', {sensitivity: 'accent'}));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,6 +65,7 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  return arr.sort((a,b) => a.price - b.price);
 };
 
 /* ------------------------------------------------------------------------------------------------
