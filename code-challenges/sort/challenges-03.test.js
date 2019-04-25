@@ -153,7 +153,8 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
-  arr.sort();
+  Meeting.prototype.daySort = {'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5};
+  return arr.sort((a, b) => a.daySort[a.dayOfWeek] - b.daySort[b.dayOfWeek]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -168,6 +169,13 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  return arr.sort((a, b) => {
+    if (a.daySort[a.dayOfWeek] - b.daySort[b.dayOfWeek] === 0) {
+      return (parseInt(a.end) - parseInt(a.start)) - (parseInt(b.end) - parseInt(b.start));
+    } else {
+      return a.daySort[a.dayOfWeek] - b.daySort[b.dayOfWeek];
+    }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
