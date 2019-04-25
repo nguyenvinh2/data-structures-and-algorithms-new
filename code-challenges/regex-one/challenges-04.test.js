@@ -14,11 +14,7 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  if (input.toString().search(/[0-9]/) > -1) {
-    return true;
-  } else {
-    return false;
-  }
+  return (input.toString().match(/[0-9]/g));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,7 +55,9 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
-  if(input.toString().match(/^oct$|^Oct$|^october$|^October$/)){
+  if (input.toString().match(/^[Oo]ct$/)) {
+    return true;
+  } else if (input.toString().match(/^[Oo]ctober$/)) {
     return true;
   } else {
     return false;
@@ -95,6 +93,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  return str.toString().replace(/[AEIOUaeiou]/g, '_');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,6 +110,7 @@ const seashells = 'She sells seashells by the seashore. The shells she sells are
 
 const findShells = (str) => {
   // Solution code here...
+  return str.match(/\w*ells/g);
 };
 
 /* ------------------------------------------------------------------------------------------------
