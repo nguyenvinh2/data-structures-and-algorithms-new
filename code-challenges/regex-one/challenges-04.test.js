@@ -59,6 +59,11 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+  if(input.toString().match(/^oct$|^Oct$|^october$|^October$/)){
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
