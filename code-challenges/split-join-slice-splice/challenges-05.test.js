@@ -80,6 +80,7 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach((element, index) => result.push(recipe.ingredients[index].slice(recipe.ingredients[index].indexOf(' ', 4) + 1)));
   return result;
 };
 
@@ -94,6 +95,7 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach((element, index) => result.push(recipe.ingredients[index].split(' ').slice(2).join(' ')));
   return result;
 };
 
@@ -110,6 +112,7 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.steps.forEach((element, index) => result.push(recipe.steps[index].split(' ')[0]));
   return result;
 };
 
@@ -128,6 +131,12 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -147,6 +156,7 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  return str.slice(0, str.length - numberOfCharacters);
 };
 
 
@@ -159,6 +169,7 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 const totalSumCSV = (str) => {
   let total = 0;
   // Solution code here...
+  str.split(',').forEach(element => total += parseInt(element));
   return total;
 };
 
@@ -173,6 +184,7 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   // Solution code here...
+  return str.replace(/[aeiouAEIOU]/g, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
