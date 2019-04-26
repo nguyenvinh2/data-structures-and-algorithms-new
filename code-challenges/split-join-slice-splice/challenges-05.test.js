@@ -16,6 +16,9 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  for (let i = 0; i < str.length + 1; i++) {
+    result.push(str.slice(i));
+  }
   return result;
 };
 
@@ -29,6 +32,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  return arr.split('');
 };
 
 
@@ -183,6 +187,11 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 
 const extractVowels = (str) => {
   // Solution code here...
+  const arr = [];
+  const regex = /[aeiouAEIOU]/g;
+  arr.push(str.replace(regex, ''));
+  arr.push(str.match(regex).sort().join(''));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
