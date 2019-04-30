@@ -42,6 +42,7 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 
 const mapTwoToThe = (arr) => {
   // Solution code here...
+  return arr.map(element => Math.pow(2, element));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,6 +57,7 @@ For example: charCode(['h','i']) returns [104, 105].
 
 const charCode = (arr) => {
   // Solution code here...
+  return arr.map(element => element.charCodeAt(0));
 };
 
 /* ------------------------------------------------------------------------------------------------
