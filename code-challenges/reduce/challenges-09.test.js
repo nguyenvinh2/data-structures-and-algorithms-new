@@ -138,6 +138,7 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.reduce((sum, current) => sum + (current.children? current.children.reduce(sum => sum + 1, 0): 0), 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -150,6 +151,7 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+  return arr.reduce((ave, current, index) => (index*ave + current)/(index+1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -171,6 +173,7 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
+  return arr.reduce((prime, current) => prime + (isPrime(current)? 1: 0), 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -214,6 +217,7 @@ const snorlaxData = {
 
 const extractStat = (statName, arr) => {
   // Solution code here...
+  return arr.reduce((stat, current) => stat? stat: current.stat.name === statName? current: null, null);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -228,6 +232,7 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
+  return arr.filter(object => object.name.includes('a')).reduce((children, current) => current.children? children.concat(current.children): children, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
