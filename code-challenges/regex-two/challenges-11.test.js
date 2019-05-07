@@ -31,7 +31,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
-  return email.match(/^([a-zA-Z0-9]{1,})(.{1}[a-zA-Z0-9]{1,})?@([a-zA-Z0-9]*).(net|com|org)$/);
+  return email.match(/^(\w{1,})(.\w{1,})?@\w*.(net|com|org)$/);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
-  return phoneNumber.toString().match(/^([0-9]{3}|^\([0-9]{3}\)){1}((\s|-|)[0-9]{3}){1}((\s|-|)[0-9]{4}){1}$/);
+  return phoneNumber.toString().match(/^(\d{3}|^\(\d{3}\)){1}((\s|-|)\d{3}){1}((\s|-|)\d{4}){1}$/);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,8 +71,7 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = elements => {
   // Solution code here...
-  const closing = elements.map(smol => (smol.match(/\/[a-z0-9]{1,}/g)));
-  return closing.reduce((concat, currentValue) => concat.concat(currentValue), []);
+  return elements.map(smol => (smol.match(/\/\w{1,}/g))).reduce((concat, currentValue) => concat.concat(currentValue), []);
 };
 
 /* ------------------------------------------------------------------------------------------------
