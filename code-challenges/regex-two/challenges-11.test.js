@@ -71,8 +71,7 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = elements => {
   // Solution code here...
-  const closing = elements.map(smol => (smol.match(/\/\w{1,}/g)));
-  return closing.reduce((concat, currentValue) => concat.concat(currentValue), []);
+  return elements.map(smol => (smol.match(/\/\w{1,}/g))).reduce((concat, currentValue) => concat.concat(currentValue), []);
 };
 
 /* ------------------------------------------------------------------------------------------------
