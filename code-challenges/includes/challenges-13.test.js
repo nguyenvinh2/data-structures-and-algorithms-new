@@ -36,6 +36,7 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  return arr.map(phone => phone.replace(/[()\s-]/g, ''));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,6 +49,7 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  return str.split('').filter((char, index) => index % 2 !==0).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,6 +60,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  return arr.filter(word => word.includes(':)')).length === arr.length? true: false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,6 +71,7 @@ Write a function named findAnything that takes in an array of strings, along wit
 
 const findAnything = (arr, target) => {
   // Solution code here...
+  return arr.filter(word => word.includes(target));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,6 +82,7 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  return arr.filter(word => word.includes(target)).length === arr.length? true: false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,6 +99,7 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
+  return arr.map(arr => arr.filter(word => !word.includes('Brook')));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,6 +127,7 @@ const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 
 const sortByDay = (arr) => {
   // Solution code here...
+  return daysOfWeek.map(day => arr.filter(event=>event.includes(day)));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -133,6 +140,7 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 
 const characterByIndex = (arr) => {
   // Solution code here...
+  return arr.map((word, index) => word.charAt(index));
 };
 
 /* ------------------------------------------------------------------------------------------------
