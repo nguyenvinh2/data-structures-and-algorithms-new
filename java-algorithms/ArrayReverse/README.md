@@ -11,4 +11,6 @@
 
 ## Solution
 
+![Image](../assets/reverse.jpg)
+
 ## Notes
