@@ -21,6 +21,6 @@
 
 ## Solution
 
-![Image](../assets/reverse.jpg)
+![Image](../../assets/reverse.jpg)
 
 ## Notes
