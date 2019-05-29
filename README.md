@@ -2,4 +2,4 @@
 
 1. [Array Reverse](./challenges/ArrayReverse)
 
-2. [Array Shift](./challenges/ArrayShift)
+2. [Array Shift](./challenges/Algorithms/src/main/java/ShiftArray)

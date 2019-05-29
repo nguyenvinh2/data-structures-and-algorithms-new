@@ -1,4 +1,4 @@
-package Algorithms;
+package ShiftArray;
 import java.util.Arrays;
 
 public class ArrayShift {
