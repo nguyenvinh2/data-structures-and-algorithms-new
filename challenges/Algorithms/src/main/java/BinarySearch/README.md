@@ -16,6 +16,8 @@
 
 ## Approach & Efficiency
 
+[Solution](./BinarySearch.java)
+
     Solved using while loop. Start in center.
 
     Big O:
