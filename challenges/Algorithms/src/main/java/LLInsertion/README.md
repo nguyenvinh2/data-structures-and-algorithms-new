@@ -33,7 +33,7 @@
 
 ## Approach & Efficiency
 
-[Solution](./DataStructures/LinkedList)
+[Solution](../DataStructures/LinkedList)
 
     Solved using while loops to traverse through LL
 
