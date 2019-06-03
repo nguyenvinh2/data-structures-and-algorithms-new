@@ -8,6 +8,8 @@ Challenges
 
 3. [Binary Search](./challenges/Algorithms/src/main/java/BinarySearch)
 
+4. [Linked List Insertion](./challenges/Algorithms/src/main/java/LLInsertion)
+
 Data Structures
 
 1. [Linked List](./challenges/Algorithms/src/main/java/DataStructures/LinkedList)
