@@ -28,7 +28,7 @@ public class LinkedListTest {
         LinkedList test = new LinkedList();
         Node testValue = new Node("Heyall");
         test.insert(testValue);
-        assertEquals(testValue, test.getHead());
+        assertEquals(testValue, test.head);
     }
 
     @Test

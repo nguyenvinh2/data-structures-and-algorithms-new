@@ -6,12 +6,9 @@ import java.util.List;
 
 public class LinkedList<T> {
 
-    private Node head;
+    public Node head;
     public Node current;
 
-    public Node getHead() {
-        return head;
-    }
 
     public List<Node> print() {
         List<Node> nodes = new ArrayList<>();
