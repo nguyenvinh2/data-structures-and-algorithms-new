@@ -1,6 +1,6 @@
 # data-structures-and-algorithms-new
 
-1. [Array Reverse](./challenges/ArrayReverse)
+1. [Array Reverse](./challenges/Algorithms/src/main/java/ArrayReverse)
 
 2. [Array Shift](./challenges/Algorithms/src/main/java/ShiftArray)
 
