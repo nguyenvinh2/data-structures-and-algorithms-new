@@ -116,4 +116,84 @@ public class LinkedListTest {
         expected.add(testEndFour);
         assertEquals(expected, test.print());
     }
+
+    //Tests addBefore method
+    @Test
+    public void insertBeforeTestFront() {
+        LinkedList test = new LinkedList();
+        Node testBefore = new Node("The end");
+        Node testBeforeTwo = new Node(3);
+        test.insert(testBefore);
+        test.insertBefore(testBeforeTwo, testBefore);
+        assertEquals(testBeforeTwo, test.head);
+    }
+
+    @Test
+    public void insertBeforeTestMiddle() {
+        LinkedList test = new LinkedList();
+        Node testEnd = new Node("The end");
+        Node testEndTwo = new Node(3);
+        Node testEndThree = new Node("The Second end");
+        Node testEndFour = new Node(7);
+        test.append(testEnd);
+        test.append(testEndTwo);
+        test.append(testEndThree);
+        test.append(testEndFour);
+
+        Node thisOne = new Node("Crazy Delicious");
+        test.insertBefore(thisOne, testEndThree);
+        while(test.current.next != testEndThree) {
+            test.current = test.current.next;
+        }
+        assertEquals(test.current, thisOne);
+    }
+
+    //insertAfter tests
+    @Test
+    public void insertAfterTestEnd() {
+        LinkedList test = new LinkedList();
+        Node testEnd = new Node("The end");
+        Node testEndTwo = new Node(3);
+        Node testEndThree = new Node("The Second end");
+        Node testEndFour = new Node(7);
+        test.append(testEnd);
+        test.append(testEndTwo);
+        test.append(testEndThree);
+        test.append(testEndFour);
+
+        Node thisOne = new Node("Crazy Delicious");
+
+        test.insertAfter(testEndFour, thisOne);
+
+        while(test.current.next !=null) {
+            test.current = test.current.next;
+        }
+
+        assertEquals(test.current, thisOne);
+    }
+
+    @Test
+    public void insertAfterTestMiddle() {
+        LinkedList test = new LinkedList();
+        Node testEnd = new Node("The end");
+        Node testEndTwo = new Node(3);
+        Node testEndThree = new Node("The Second end");
+        Node testEndFour = new Node(7);
+        test.append(testEnd);
+        test.append(testEndTwo);
+        test.append(testEndThree);
+        test.append(testEndFour);
+
+        Node thisOne = new Node("Crazy Delicious");
+
+        test.insertAfter(testEndTwo, thisOne);
+
+        while(test.current != testEndTwo) {
+            test.current = test.current.next;
+        }
+
+        assertEquals(test.current.next, thisOne);
+    }
+
+
 }

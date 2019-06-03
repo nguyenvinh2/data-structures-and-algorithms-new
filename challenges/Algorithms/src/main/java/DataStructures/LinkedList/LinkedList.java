@@ -60,7 +60,7 @@ public class LinkedList<T> {
             System.out.println("Cannot add node - input node contains reference to another node.");
         } else {
             current = head;
-            if (current.value == existingValue.value)
+            if (head.value == existingValue.value)
             {
                 insert(newValue);
                 success = true;
@@ -76,7 +76,7 @@ public class LinkedList<T> {
                 }
             }
             if(success) {
-                System.out.println("Successfully added Node " + newValue.value + " to Node " + current.value);
+                System.out.println("Successfully added Node " + newValue.value + " before Node " + existingValue.value);
             } else {
                 System.out.println("Unable to add Node. Check if reference node exists in the Linked List");
             }
@@ -101,7 +101,7 @@ public class LinkedList<T> {
             }
         }
         if(success) {
-            System.out.println("Successfully added Node " + newValue.value + " to Node " + current.value);
+            System.out.println("Successfully added Node " + newValue.value + " after Node " + existingValue.value);
         } else {
             System.out.println("Unable to add Node. Check if reference node exists in the Linked List");
         }
