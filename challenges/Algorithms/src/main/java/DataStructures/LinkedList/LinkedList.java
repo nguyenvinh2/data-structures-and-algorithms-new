@@ -23,23 +23,31 @@ public class LinkedList<T> {
     }
 
     public void insert(Node node) {
-        node.next = head;
-        head = node;
-        current = head;
+        if(node instanceof Node) {
+            node.next = head;
+            head = node;
+            current = head;
+        } else {
+            System.out.println("Only a node can be inserted.");
+        }
     }
 
     public void append(Node node) {
-        if (head == null) {
-            head = node;
-            head.next = null;
-        } else {
-            current = head;
-            while (current.next != null) {
-                current = current.next;
+        if(node instanceof Node) {
+            if (head == null) {
+                head = node;
+                head.next = null;
+            } else {
+                current = head;
+                while (current.next != null) {
+                    current = current.next;
+                }
+                current.next = node;
             }
-            current.next = node;
+            current = head;
+        } else {
+            System.out.println("Only a node can be appended.");
         }
-        current = head;
     }
 
     public boolean includes(T data) {
@@ -55,6 +63,10 @@ public class LinkedList<T> {
     }
 
     public void insertBefore(Node newValue, Node existingValue) {
+        if(!(newValue instanceof Node) || !(existingValue instanceof Node)) {
+            System.out.println("Only node types can be inputs");
+            return;
+        }
         boolean success = false;
         if (newValue.next != null) {
             System.out.println("Cannot add node - input node contains reference to another node.");
@@ -85,6 +97,10 @@ public class LinkedList<T> {
     }
 
     public void insertAfter(Node existingValue, Node newValue) {
+        if(!(newValue instanceof Node) || !(existingValue instanceof Node)) {
+            System.out.println("Only node types can be inputs");
+            return;
+        }
         boolean success = false;
         if (newValue.next != null) {
             System.out.println("Cannot add node - input node contains reference to another node.");
