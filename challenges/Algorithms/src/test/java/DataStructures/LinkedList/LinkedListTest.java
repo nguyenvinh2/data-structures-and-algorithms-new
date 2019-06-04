@@ -271,7 +271,6 @@ public class LinkedListTest {
         test.append(new Node(2));
         Node expected = new Node(0);
         test.append(expected);
-        test.print();
         assertEquals(expected.value, test.getFromEnd(0));
     }
 
@@ -287,7 +286,6 @@ public class LinkedListTest {
         test.append(new Node(2));
         Node expected = new Node(0);
         test.append(expected);
-        test.print();
         assertEquals(middleNode.value, test.getFromEnd(3));
     }
 
@@ -304,7 +302,6 @@ public class LinkedListTest {
         test.append(new Node(2));
         Node expected = new Node(0);
         test.append(expected);
-        test.print();
         assertEquals(frontNode.value, test.getFromEnd(6));
     }
 
@@ -319,7 +316,6 @@ public class LinkedListTest {
         test.append(new Node(2));
         Node expected = new Node(0);
         test.append(expected);
-        test.print();
         assertEquals(expected.value, test.getFromEnd(7));
     }
 
@@ -334,8 +330,21 @@ public class LinkedListTest {
         test.append(new Node(2));
         Node expected = new Node(0);
         test.append(expected);
-        test.print();
         assertEquals(expected.value, test.getFromEnd(-6));
+    }
+
+    @Test
+    public void KthEndTestSingle() {
+        LinkedList test = new LinkedList();
+        Node middleNode = new Node("Wrong");
+        test.append(middleNode);
+        assertEquals(middleNode.value, test.getFromEnd(0));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void KthEndTestNull() {
+        LinkedList test = new LinkedList();
+        assertEquals(null, test.getFromEnd(0));
     }
 
 
