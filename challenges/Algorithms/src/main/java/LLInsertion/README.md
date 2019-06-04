@@ -33,7 +33,7 @@
 
 ## Approach & Efficiency
 
-[Solution](../DataStructures/LinkedList)
+[Solution Code](../DataStructures/LinkedList)
 
     Solved using while loops to traverse through LL
 
@@ -43,6 +43,8 @@
 
 ## Solution
 
-![LLI]()
+![LLI](../../../../../../assets/binary_search.jpg)
 
 ## Notes
+
+Challenge done in existing Linked List Data Structure
