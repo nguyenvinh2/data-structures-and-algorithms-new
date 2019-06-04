@@ -43,7 +43,7 @@
 
 ## Solution
 
-![LLI](../../../../../../assets/binary_search.jpg)
+![LLI](../../../../../../assets/ll_insertions.jpg)
 
 ## Notes
 
