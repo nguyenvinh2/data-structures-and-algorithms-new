@@ -23,23 +23,31 @@ public class LinkedList<T> {
     }
 
     public void insert(Node node) {
-        node.next = head;
-        head = node;
-        current = head;
+        if(node instanceof Node) {
+            node.next = head;
+            head = node;
+            current = head;
+        } else {
+            System.out.println("Only a node can be inserted.");
+        }
     }
 
     public void append(Node node) {
-        if (head == null) {
-            head = node;
-            head.next = null;
-        } else {
-            current = head;
-            while (current.next != null) {
-                current = current.next;
+        if(node instanceof Node) {
+            if (head == null) {
+                head = node;
+                head.next = null;
+            } else {
+                current = head;
+                while (current.next != null) {
+                    current = current.next;
+                }
+                current.next = node;
             }
-            current.next = node;
+            current = head;
+        } else {
+            System.out.println("Only a node can be appended.");
         }
-        current = head;
     }
 
     public boolean includes(T data) {
@@ -53,6 +61,69 @@ public class LinkedList<T> {
         current = head;
         return false;
     }
+
+    public void insertBefore(Node newValue, Node existingValue) {
+        if(!(newValue instanceof Node) || !(existingValue instanceof Node)) {
+            System.out.println("Only node types can be inputs");
+            return;
+        }
+        boolean success = false;
+        if (newValue.next != null) {
+            System.out.println("Cannot add node - input node contains reference to another node.");
+        } else {
+            current = head;
+            if (head.value == existingValue.value)
+            {
+                insert(newValue);
+                success = true;
+            } else {
+                while (current.next != null) {
+                    if (current.next.value == existingValue.value) {
+                        newValue.next = current.next;
+                        current.next = newValue;
+                        success = true;
+                        break;
+                    }
+                    current = current.next;
+                }
+            }
+            if(success) {
+                System.out.println("Successfully added Node " + newValue.value + " before Node " + existingValue.value);
+            } else {
+                System.out.println("Unable to add Node. Check if reference node exists in the Linked List");
+            }
+            current = head;
+        }
+    }
+
+    public void insertAfter(Node existingValue, Node newValue) {
+        if(!(newValue instanceof Node) || !(existingValue instanceof Node)) {
+            System.out.println("Only node types can be inputs");
+            return;
+        }
+        boolean success = false;
+        if (newValue.next != null) {
+            System.out.println("Cannot add node - input node contains reference to another node.");
+        } else {
+            current = head;
+            while (current != null) {
+                if (current.value == existingValue.value) {
+                    newValue.next = current.next;
+                    current.next = newValue;
+                    success = true;
+                    break;
+                }
+                current = current.next;
+            }
+        }
+        if(success) {
+            System.out.println("Successfully added Node " + newValue.value + " after Node " + existingValue.value);
+        } else {
+            System.out.println("Unable to add Node. Check if reference node exists in the Linked List");
+        }
+        current = head;
+    }
+
 }
 
 

@@ -24,4 +24,8 @@ Implement a Singly Linked List Data Structure
 
     includes() - check to see if a value exists in the Linked List
 
+    insertBefore(Node existingValue, Node newValue) - Adds a node before a specified Node that exists in the Linked List
+
+    insertAfter(Node existingValue, Node newValue) - Adds a node after a specified Node that exists in the Linked List
+
 ## Notes

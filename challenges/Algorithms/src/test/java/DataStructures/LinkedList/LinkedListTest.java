@@ -24,6 +24,14 @@ public class LinkedListTest {
     }
 
     @Test
+    public void insertNullTest() {
+        LinkedList test = new LinkedList();
+        Node testValue = null;
+        test.insert(testValue);
+        assertEquals(testValue, test.current);
+    }
+
+    @Test
     public void insertTestHead() {
         LinkedList test = new LinkedList();
         Node testValue = new Node("Heyall");
@@ -52,6 +60,15 @@ public class LinkedListTest {
         test.append(testEnd);
         assertEquals(testEnd, test.current);
     }
+
+    @Test
+    public void appendNullTest() {
+        LinkedList test = new LinkedList();
+        Node testEnd = null;
+        test.append(testEnd);
+        assertEquals(testEnd, test.current);
+    }
+
 
     @Test
     public void appendMultipleTest() {
@@ -99,13 +116,27 @@ public class LinkedListTest {
     }
 
     @Test
+    public void includesNullTest() {
+        LinkedList test = new LinkedList();
+        Node testEnd = new Node("The end");
+        Node testEndTwo = new Node(3);
+        Node testEndThree = new Node("The Second end");
+        Node testEndFour = new Node(7);
+        test.append(testEnd);
+        test.append(testEndTwo);
+        test.append(testEndThree);
+        test.append(testEndFour);
+        assertFalse(test.includes(null));
+    }
+
+    @Test
     public void printTest() {
         List<Node> expected = new ArrayList<>();
         LinkedList test = new LinkedList();
         Node testEnd = new Node("The end");
         Node testEndTwo = new Node(3);
         Node testEndThree = new Node("The Second end");
-        Node testEndFour = new Node(7);
+        Node testEndFour = new Node(null);
         test.append(testEnd);
         test.append(testEndTwo);
         test.append(testEndThree);
@@ -116,4 +147,118 @@ public class LinkedListTest {
         expected.add(testEndFour);
         assertEquals(expected, test.print());
     }
+
+    //Tests addBefore method
+    @Test
+    public void insertBeforeTestFront() {
+        LinkedList test = new LinkedList();
+        Node testBefore = new Node("The end");
+        Node testBeforeTwo = new Node(3);
+        test.insert(testBefore);
+        test.insertBefore(testBeforeTwo, testBefore);
+        assertEquals(testBeforeTwo, test.head);
+    }
+
+    @Test
+    public void insertBeforeTestNull() {
+        LinkedList test = new LinkedList();
+        Node testBefore = new Node("The end");
+        Node testBeforeTwo = null;
+        test.insert(testBefore);
+        test.insertBefore(testBeforeTwo, testBefore);
+        assertEquals(testBefore, test.head);
+    }
+
+
+    @Test
+    public void insertBeforeTestMiddle() {
+        LinkedList test = new LinkedList();
+        Node testEnd = new Node("The end");
+        Node testEndTwo = new Node(3);
+        Node testEndThree = new Node("The Second end");
+        Node testEndFour = new Node(7);
+        test.append(testEnd);
+        test.append(testEndTwo);
+        test.append(testEndThree);
+        test.append(testEndFour);
+
+        Node thisOne = new Node("Crazy Delicious");
+        test.insertBefore(thisOne, testEndThree);
+        while(test.current.next != testEndThree) {
+            test.current = test.current.next;
+        }
+        assertEquals(test.current, thisOne);
+    }
+
+    //insertAfter tests
+    @Test
+    public void insertAfterTestEnd() {
+        LinkedList test = new LinkedList();
+        Node testEnd = new Node("The end");
+        Node testEndTwo = new Node(3);
+        Node testEndThree = new Node("The Second end");
+        Node testEndFour = new Node(7);
+        test.append(testEnd);
+        test.append(testEndTwo);
+        test.append(testEndThree);
+        test.append(testEndFour);
+
+        Node thisOne = new Node("Crazy Delicious");
+
+        test.insertAfter(testEndFour, thisOne);
+
+        while(test.current.next !=null) {
+            test.current = test.current.next;
+        }
+
+        assertEquals(test.current, thisOne);
+    }
+
+    @Test
+    public void insertAfterTestNull() {
+        LinkedList test = new LinkedList();
+        Node testEnd = new Node("The end");
+        Node testEndTwo = new Node(3);
+        Node testEndThree = new Node("The Second end");
+        Node testEndFour = new Node(7);
+        test.append(testEnd);
+        test.append(testEndTwo);
+        test.append(testEndThree);
+        test.append(testEndFour);
+
+        Node thisOne = null;
+
+        test.insertAfter(testEndFour, thisOne);
+
+        while(test.current.next !=null) {
+            test.current = test.current.next;
+        }
+
+        assertEquals(test.current, testEndFour);
+    }
+
+    @Test
+    public void insertAfterTestMiddle() {
+        LinkedList test = new LinkedList();
+        Node testEnd = new Node("The end");
+        Node testEndTwo = new Node(3);
+        Node testEndThree = new Node("The Second end");
+        Node testEndFour = new Node(7);
+        test.append(testEnd);
+        test.append(testEndTwo);
+        test.append(testEndThree);
+        test.append(testEndFour);
+
+        Node thisOne = new Node("Crazy Delicious");
+
+        test.insertAfter(testEndTwo, thisOne);
+
+        while(test.current != testEndTwo) {
+            test.current = test.current.next;
+        }
+
+        assertEquals(test.current.next, thisOne);
+    }
+
+
 }
