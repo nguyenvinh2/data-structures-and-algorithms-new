@@ -346,6 +346,180 @@ public class LinkedListTest {
         LinkedList test = new LinkedList();
         assertEquals(null, test.getFromEnd(0));
     }
+    //The portion below is for mergeLists
 
+    @Test
+    public void mergeTest() {
+        LinkedList one = new LinkedList();
+        LinkedList two = new LinkedList();
+        LinkedList expected = new LinkedList();
+        one.append(new Node(1));
+        one.append(new Node(2));
+        one.append(new Node(3));
+        one.append(new Node(4));
+
+        two.append(new Node("One"));
+        two.append(new Node("Two"));
+        two.append(new Node("Three"));
+        two.append(new Node("Four"));
+
+        expected.append(new Node(1));
+        expected.append(new Node("One"));
+        expected.append(new Node(2));
+        expected.append(new Node("Two"));
+        expected.append(new Node(3));
+        expected.append(new Node("Three"));
+        expected.append(new Node(4));
+        expected.append(new Node("Four"));
+
+        LinkedList result = LinkedList.mergeLists(one, two);
+        while(result.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+
+        while(expected.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+    }
+
+    @Test
+    public void mergeTestUnevenLength() {
+        LinkedList one = new LinkedList();
+        LinkedList two = new LinkedList();
+        LinkedList expected = new LinkedList();
+        one.append(new Node(1));
+        one.append(new Node(2));
+
+        two.append(new Node("One"));
+        two.append(new Node("Two"));
+        two.append(new Node("Three"));
+        two.append(new Node("Four"));
+
+        expected.append(new Node(1));
+        expected.append(new Node("One"));
+        expected.append(new Node(2));
+        expected.append(new Node("Two"));
+        expected.append(new Node("Three"));
+        expected.append(new Node("Four"));
+        LinkedList result = LinkedList.mergeLists(one, two);
+        while (result.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+
+        while (expected.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+    }
+
+    @Test
+    public void mergeTestUnevenLengthTwo() {
+        LinkedList one = new LinkedList();
+        LinkedList two = new LinkedList();
+        LinkedList expected = new LinkedList();
+        one.append(new Node(1));
+        one.append(new Node(2));
+        one.append(new Node(3));
+        one.append(new Node(4));
+
+
+        two.append(new Node("One"));
+        two.append(new Node("Two"));
+
+        expected.append(new Node(1));
+        expected.append(new Node("One"));
+        expected.append(new Node(2));
+        expected.append(new Node("Two"));
+        expected.append(new Node(3));
+        expected.append(new Node(4));
+        LinkedList result = LinkedList.mergeLists(one, two);
+        while (result.current != null) {
+            System.out.print(expected.current.value + " => ");
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+
+        while (expected.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+    }
+
+    @Test
+    public void mergeBothNullTest() {
+        LinkedList one = new LinkedList();
+        LinkedList two = new LinkedList();
+        LinkedList result = LinkedList.mergeLists(one, two);
+        assertNull(result);
+    }
+
+    @Test
+    public void mergeOneNullTest() {
+        LinkedList one = new LinkedList();
+        LinkedList two = new LinkedList();
+        LinkedList expected = new LinkedList();
+
+        two.append(new Node("One"));
+        two.append(new Node("Two"));
+        two.append(new Node("Three"));
+        two.append(new Node("Four"));
+
+        expected.append(new Node("One"));
+        expected.append(new Node("Two"));
+        expected.append(new Node("Three"));
+        expected.append(new Node("Four"));
+
+        LinkedList result = LinkedList.mergeLists(one, two);
+        while(result.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+
+        while(expected.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+    }
+
+    @Test
+    public void mergeTwoNullTest() {
+        LinkedList one = new LinkedList();
+        LinkedList two = new LinkedList();
+        LinkedList expected = new LinkedList();
+
+        one.append(new Node(1));
+        one.append(new Node(2));
+        one.append(new Node(3));
+        one.append(new Node(4));
+
+        expected.append(new Node(1));
+        expected.append(new Node(2));
+        expected.append(new Node(3));
+        expected.append(new Node(4));
+
+        LinkedList result = LinkedList.mergeLists(one, two);
+        while(result.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+
+        while(expected.current != null) {
+            assertEquals(expected.current.value, result.current.value);
+            expected.current = expected.current.next;
+            result.current = result.current.next;
+        }
+    }
 
 }
