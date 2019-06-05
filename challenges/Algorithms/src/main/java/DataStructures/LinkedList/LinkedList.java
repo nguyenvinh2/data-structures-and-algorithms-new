@@ -124,6 +124,29 @@ public class LinkedList<T> {
         current = head;
     }
 
+    public T getFromEnd(int endIndex) {
+        if(endIndex < 0) {
+            throw new IllegalArgumentException("Index number cannot be negative");
+        }
+        Node targetedNode = null;
+        int count = 0;
+        current = head;
+        while (current !=null) {
+            if(count == endIndex) {
+                targetedNode = head;
+            } else if(count > endIndex) {
+                targetedNode = targetedNode.next;
+            }
+            count++;
+            current = current.next;
+        }
+        if (targetedNode != null) {
+            return (T) targetedNode.value;
+        } else {
+            throw new IndexOutOfBoundsException("Input value is greater than the length of the Linked List");
+        }
+    }
+
 }
 
 

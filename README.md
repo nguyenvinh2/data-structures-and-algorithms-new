@@ -10,6 +10,8 @@ Challenges
 
 4. [Linked List Insertion](./challenges/Algorithms/src/main/java/LLInsertion)
 
+5. [Linked List: Kth From the End](./challenges/Algorithms/src/main/java/LLKthFromTheEnd)
+
 Data Structures
 
 1. [Linked List](./challenges/Algorithms/src/main/java/DataStructures/LinkedList)

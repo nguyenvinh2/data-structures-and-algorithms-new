@@ -260,5 +260,92 @@ public class LinkedListTest {
         assertEquals(test.current.next, thisOne);
     }
 
+    @Test
+    public void KthEndTestFront() {
+        LinkedList test = new LinkedList();
+        test.append(new Node("Something"));
+        test.append(new Node("Has"));
+        test.append(new Node("Gone"));
+        test.append(new Node("Wrong"));
+        test.append(new Node(1));
+        test.append(new Node(2));
+        Node expected = new Node(0);
+        test.append(expected);
+        assertEquals(expected.value, test.getFromEnd(0));
+    }
+
+    @Test
+    public void KthEndTestMiddle() {
+        LinkedList test = new LinkedList();
+        test.append(new Node("Something"));
+        test.append(new Node("Has"));
+        test.append(new Node("Gone"));
+        Node middleNode = new Node("Wrong");
+        test.append(middleNode);
+        test.append(new Node(1));
+        test.append(new Node(2));
+        Node expected = new Node(0);
+        test.append(expected);
+        assertEquals(middleNode.value, test.getFromEnd(3));
+    }
+
+
+    @Test
+    public void KthEndTestEnd() {
+        LinkedList test = new LinkedList();
+        Node frontNode = new Node("Something");
+        test.append(frontNode);
+        test.append(new Node("Has"));
+        test.append(new Node("Gone"));
+        test.append(new Node("Wrong"));
+        test.append(new Node(1));
+        test.append(new Node(2));
+        Node expected = new Node(0);
+        test.append(expected);
+        assertEquals(frontNode.value, test.getFromEnd(6));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void KthEndTestFail() {
+        LinkedList test = new LinkedList();
+        test.append(new Node("Something"));
+        test.append(new Node("Has"));
+        test.append(new Node("Gone"));
+        test.append(new Node("Wrong"));
+        test.append(new Node(1));
+        test.append(new Node(2));
+        Node expected = new Node(0);
+        test.append(expected);
+        assertEquals(expected.value, test.getFromEnd(7));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void KthEndTestFailNegative() {
+        LinkedList test = new LinkedList();
+        test.append(new Node("Something"));
+        test.append(new Node("Has"));
+        test.append(new Node("Gone"));
+        test.append(new Node("Wrong"));
+        test.append(new Node(1));
+        test.append(new Node(2));
+        Node expected = new Node(0);
+        test.append(expected);
+        assertEquals(expected.value, test.getFromEnd(-6));
+    }
+
+    @Test
+    public void KthEndTestSingle() {
+        LinkedList test = new LinkedList();
+        Node middleNode = new Node("Wrong");
+        test.append(middleNode);
+        assertEquals(middleNode.value, test.getFromEnd(0));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void KthEndTestNull() {
+        LinkedList test = new LinkedList();
+        assertEquals(null, test.getFromEnd(0));
+    }
+
 
 }
