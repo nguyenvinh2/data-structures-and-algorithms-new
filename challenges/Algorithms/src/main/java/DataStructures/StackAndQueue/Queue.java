@@ -4,20 +4,20 @@ public class Queue {
     private Node front;
     private Node rear;
 
-    public Queue(){};
+    public Queue(){}
 
     public Queue(Node node) {
         front = node;
         rear = node;
     }
 
-    public Node Peek() {
+    public Node peek() {
         return front;
     }
 
-    public void Enqueue(Node node) {
+    public void enqueue(Node node) {
         if (node == null) {
-            System.out.println("You cannot add a null node to the Queue");
+            throw new IllegalArgumentException("You cannot add a null node to the Queue");
         } else if (front == null) {
             front = node;
             rear = node;
@@ -27,7 +27,7 @@ public class Queue {
         }
     }
 
-    public Node Dequeue() {
+    public Node dequeue() {
         if (front != null) {
             Node removedNode = front;
             front = front.next;

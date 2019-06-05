@@ -4,15 +4,17 @@ package DataStructures.StackAndQueue;
 public class Stack {
     private Node top;
 
+    public Stack(){}
+
     public Stack(Node input) {
         top = input;
     }
 
-    public Node Peek() {
+    public Node peek() {
         return top;
     }
 
-    public Node Pop() {
+    public Node pop() {
         if (top == null) {
             return null;
         }
@@ -22,9 +24,9 @@ public class Stack {
         return poppedNode;
     }
 
-    public void Push(Node input) {
+    public void push(Node input) {
         if (input == null) {
-            System.out.println("You cannot add a null node to the Stack");
+            throw new IllegalArgumentException("You cannot add a null node to the Stack");
         } else {
             input.next = top;
             top = input;

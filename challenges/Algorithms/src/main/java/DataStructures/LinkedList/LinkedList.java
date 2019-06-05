@@ -160,16 +160,16 @@ public class LinkedList<T> {
             one.current = one.head;
             two.current = two.head;
             while (one.current != null && two.current != null) {
+                if(one.current.next == null) {
+                    one.current.next = two.current;
+                    break;
+                }
                 Node tempOne = one.current.next;
                 Node tempTwo = two.current.next;
                 one.current.next = two.current;
                 two.current.next = tempOne;
                 one.current = tempOne;
                 two.current = tempTwo;
-                if(one.current.next == null && two.current.next != null) {
-                    one.current.next = two.current;
-                    break;
-                }
             }
 
             one.current = one.head;
