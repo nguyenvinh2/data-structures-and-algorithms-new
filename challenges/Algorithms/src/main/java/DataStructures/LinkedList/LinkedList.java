@@ -23,7 +23,7 @@ public class LinkedList<T> {
     }
 
     public void insert(Node node) {
-        if(node instanceof Node) {
+        if (node instanceof Node) {
             node.next = head;
             head = node;
             current = head;
@@ -33,7 +33,7 @@ public class LinkedList<T> {
     }
 
     public void append(Node node) {
-        if(node instanceof Node) {
+        if (node instanceof Node) {
             if (head == null) {
                 head = node;
                 head.next = null;
@@ -63,7 +63,7 @@ public class LinkedList<T> {
     }
 
     public void insertBefore(Node newValue, Node existingValue) {
-        if(!(newValue instanceof Node) || !(existingValue instanceof Node)) {
+        if (!(newValue instanceof Node) || !(existingValue instanceof Node)) {
             System.out.println("Only node types can be inputs");
             return;
         }
@@ -72,8 +72,7 @@ public class LinkedList<T> {
             System.out.println("Cannot add node - input node contains reference to another node.");
         } else {
             current = head;
-            if (head.value == existingValue.value)
-            {
+            if (head.value == existingValue.value) {
                 insert(newValue);
                 success = true;
             } else {
@@ -87,7 +86,7 @@ public class LinkedList<T> {
                     current = current.next;
                 }
             }
-            if(success) {
+            if (success) {
                 System.out.println("Successfully added Node " + newValue.value + " before Node " + existingValue.value);
             } else {
                 System.out.println("Unable to add Node. Check if reference node exists in the Linked List");
@@ -97,7 +96,7 @@ public class LinkedList<T> {
     }
 
     public void insertAfter(Node existingValue, Node newValue) {
-        if(!(newValue instanceof Node) || !(existingValue instanceof Node)) {
+        if (!(newValue instanceof Node) || !(existingValue instanceof Node)) {
             System.out.println("Only node types can be inputs");
             return;
         }
@@ -116,7 +115,7 @@ public class LinkedList<T> {
                 current = current.next;
             }
         }
-        if(success) {
+        if (success) {
             System.out.println("Successfully added Node " + newValue.value + " after Node " + existingValue.value);
         } else {
             System.out.println("Unable to add Node. Check if reference node exists in the Linked List");
@@ -125,16 +124,16 @@ public class LinkedList<T> {
     }
 
     public T getFromEnd(int endIndex) {
-        if(endIndex < 0) {
+        if (endIndex < 0) {
             throw new IllegalArgumentException("Index number cannot be negative");
         }
         Node targetedNode = null;
         int count = 0;
         current = head;
-        while (current !=null) {
-            if(count == endIndex) {
+        while (current != null) {
+            if (count == endIndex) {
                 targetedNode = head;
-            } else if(count > endIndex) {
+            } else if (count > endIndex) {
                 targetedNode = targetedNode.next;
             }
             count++;
@@ -147,6 +146,28 @@ public class LinkedList<T> {
         }
     }
 
+    public static LinkedList mergeLists(LinkedList one, LinkedList two) {
+        if (one.head == null && two.head != null) {
+            System.out.println("Null argument found in first parameter");
+            return two;
+        } else {
+            one.current = one.head;
+            two.current = two.head;
+            while (one.current != null && two.current != null) {
+                Node tempOne = one.current.next;
+                Node tempTwo = two.current.next;
+                one.current.next = two.current;
+                if(tempOne !=null) {
+                    two.current.next = tempOne;
+                }
+                one.current = tempOne;
+                two.current = tempTwo;
+            }
+
+            one.current = one.head;
+            return one;
+        }
+    }
 }
 
 

@@ -12,6 +12,8 @@ Challenges
 
 5. [Linked List: Kth From the End](./challenges/Algorithms/src/main/java/LLKthFromTheEnd)
 
+6. [Merge List](./challenges/Algorithms/src/main/java/MergeList)
+
 Data Structures
 
 1. [Linked List](./challenges/Algorithms/src/main/java/DataStructures/LinkedList)
