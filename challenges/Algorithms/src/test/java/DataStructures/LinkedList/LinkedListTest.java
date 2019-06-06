@@ -459,7 +459,7 @@ public class LinkedListTest {
         LinkedList one = new LinkedList();
         LinkedList two = new LinkedList();
         LinkedList result = LinkedList.mergeLists(one, two);
-        assertNull(result);
+        assertEquals(one, result);
     }
 
     @Test

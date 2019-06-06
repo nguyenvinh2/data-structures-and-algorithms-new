@@ -150,24 +150,16 @@ public class LinkedList<T> {
         if (one.head == null && two.head != null) {
             System.out.println("Null argument found in first parameter");
             return two;
-        } else if (one.head != null && two.head == null) {
-            System.out.println("Null argument found in second parameter");
-            return one;
-        } else if (one.head == null && two.head == null) {
-            System.out.println("No Linked Lists found in the parameters");
-            return null;
         } else {
             one.current = one.head;
             two.current = two.head;
             while (one.current != null && two.current != null) {
-                if(one.current.next == null) {
-                    one.current.next = two.current;
-                    break;
-                }
                 Node tempOne = one.current.next;
                 Node tempTwo = two.current.next;
                 one.current.next = two.current;
-                two.current.next = tempOne;
+                if(tempOne !=null) {
+                    two.current.next = tempOne;
+                }
                 one.current = tempOne;
                 two.current = tempTwo;
             }
