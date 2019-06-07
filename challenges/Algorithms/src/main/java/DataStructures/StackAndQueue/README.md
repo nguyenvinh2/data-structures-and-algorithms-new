@@ -47,7 +47,7 @@ Your Queue should meet the following criteria:
         new Queue(Node node)
         
         Methods:
-        enqueue(Node node) - Add a node to the queue
+        enqueue(Node node) - Add a node of any value to the back of the queue
         dequeue() - remove and return the front node of the queue
         peek() - return but not remove the front node of the queue.
 
