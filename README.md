@@ -17,3 +17,5 @@ Challenges
 Data Structures
 
 1. [Linked List](./challenges/Algorithms/src/main/java/DataStructures/LinkedList)
+
+2. [Stack and Queue](./challenges/Algorithms/src/main/java/DataStructures/StackAndQueue)

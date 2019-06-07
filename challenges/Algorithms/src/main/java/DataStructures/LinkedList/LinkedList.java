@@ -154,6 +154,10 @@ public class LinkedList<T> {
             one.current = one.head;
             two.current = two.head;
             while (one.current != null && two.current != null) {
+                if(one.current.next == null) {
+                    one.current.next = two.current;
+                    break;
+                }
                 Node tempOne = one.current.next;
                 Node tempTwo = two.current.next;
                 one.current.next = two.current;
@@ -167,6 +171,13 @@ public class LinkedList<T> {
             one.current = one.head;
             return one;
         }
+    }
+
+    public static int getLength(Node input) {
+        if(input == null) {
+            return 0;
+        }
+        return 1 + getLength(input.next);
     }
 }
 
