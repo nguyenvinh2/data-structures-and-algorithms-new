@@ -172,6 +172,13 @@ public class LinkedList<T> {
             return one;
         }
     }
+
+    public static int getLength(Node input) {
+        if(input == null) {
+            return 0;
+        }
+        return 1 + getLength(input.next);
+    }
 }
 
 
