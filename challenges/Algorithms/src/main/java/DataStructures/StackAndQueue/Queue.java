@@ -1,13 +1,13 @@
 package DataStructures.StackAndQueue;
 
 public class Queue<T> {
-    private Node front;
-    private Node rear;
+    private Node<T> front;
+    private Node<T> rear;
 
     public Queue(){}
 
     public Queue(T input) {
-        Node add = new Node(input);
+        Node<T> add = new Node<T>(input);
         front = add;
         rear = add;
     }
@@ -21,7 +21,7 @@ public class Queue<T> {
     }
 
     public void enqueue(T input) {
-        Node add = new Node(input);
+        Node<T> add = new Node<T>(input);
         if (front == null) {
             front = add;
             rear = add;
@@ -33,7 +33,7 @@ public class Queue<T> {
 
     public T dequeue() {
         if (front != null) {
-            Node removedNode = front;
+            Node<T> removedNode = front;
             front = front.next;
             removedNode.next = null;
             return (T) removedNode.value;

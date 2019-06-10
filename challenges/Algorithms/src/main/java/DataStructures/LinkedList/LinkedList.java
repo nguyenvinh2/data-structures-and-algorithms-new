@@ -6,12 +6,12 @@ import java.util.List;
 
 public class LinkedList<T> {
 
-    public Node head;
-    public Node current;
+    public Node<T> head;
+    public Node<T> current;
 
 
-    public List<Node> print() {
-        List<Node> nodes = new ArrayList<>();
+    public List<Node<T>> print() {
+        List<Node<T>> nodes = new ArrayList<>();
         current = head;
         while (current != null) {
             nodes.add(current);
@@ -32,7 +32,7 @@ public class LinkedList<T> {
         }
     }
 
-    public void append(Node node) {
+    public void append(Node<T> node) {
         if (node instanceof Node) {
             if (head == null) {
                 head = node;
@@ -62,7 +62,7 @@ public class LinkedList<T> {
         return false;
     }
 
-    public void insertBefore(Node newValue, Node existingValue) {
+    public void insertBefore(Node<T> newValue, Node<T> existingValue) {
         if (!(newValue instanceof Node) || !(existingValue instanceof Node)) {
             System.out.println("Only node types can be inputs");
             return;
@@ -95,7 +95,7 @@ public class LinkedList<T> {
         }
     }
 
-    public void insertAfter(Node existingValue, Node newValue) {
+    public void insertAfter(Node<T> existingValue, Node<T> newValue) {
         if (!(newValue instanceof Node) || !(existingValue instanceof Node)) {
             System.out.println("Only node types can be inputs");
             return;
@@ -127,7 +127,7 @@ public class LinkedList<T> {
         if (endIndex < 0) {
             throw new IllegalArgumentException("Index number cannot be negative");
         }
-        Node targetedNode = null;
+        Node<T> targetedNode = null;
         int count = 0;
         current = head;
         while (current != null) {
