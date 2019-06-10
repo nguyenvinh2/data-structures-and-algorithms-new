@@ -1,35 +1,38 @@
 package DataStructures.StackAndQueue;
 
 
-public class Stack {
+public class Stack<T> {
     private Node top;
 
-    public Stack(){}
-
-    public Stack(Node input) {
-        top = input;
+    public Stack() {
     }
 
-    public Node peek() {
-        return top;
+    public Stack(T input) {
+        top = new Node(input);
     }
 
-    public Node pop() {
-        if (top == null) {
+    public T peek() {
+        if (top != null) {
+            return (T) top.value;
+        } else {
             return null;
         }
-        Node poppedNode = top;
-        top = top.next;
-        poppedNode.next = null;
-        return poppedNode;
     }
 
-    public void push(Node input) {
-        if (input == null) {
-            throw new IllegalArgumentException("You cannot add a null node to the Stack");
+    public T pop() {
+        if (top == null) {
+            return null;
         } else {
-            input.next = top;
-            top = input;
+            Node poppedNode = top;
+            top = top.next;
+            poppedNode.next = null;
+            return (T) poppedNode.value;
         }
+    }
+
+    public void push(T input) {
+        Node add = new Node(input);
+        add.next = top;
+        top = add;
     }
 }

@@ -532,7 +532,7 @@ public class LinkedListTest {
         one.next = two;
         two.next = three;
         three.next = four;
-        assertEquals(7, LinkedList.getLength(one));
+        assertEquals(4, LinkedList.getLength(one));
     }
 
 }

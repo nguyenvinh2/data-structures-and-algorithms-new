@@ -21,36 +21,51 @@ public class StackTest {
 
     @Test
     public void popTest() {
-        Node sample = new Node("Woooz");
-        Node sampleTwo = new Node("Woooze");
+        String sample = "Woooz";
+        int sampleTwo = 5;
         Stack test = new Stack(sample);
         test.push(sampleTwo);
-        Node removed = test.pop();
+        assertEquals(sampleTwo, test.peek());
+        assertEquals(sampleTwo, test.pop());
         assertEquals(sample, test.peek());
-        assertEquals(sampleTwo, removed);
     }
 
     @Test
     public void popTestNull() {
         Stack test = new Stack();
-        Node result = test.pop();
-        assertNull(result);
+        assertNull(test.pop());
         assertNull(test.peek());
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void pushNullTest() {
-        Node sample = new Node("Woooz");
-        Stack test = new Stack(sample);
-        test.push(null);
     }
 
     @Test
     public void pushTest() {
-        Node sample = new Node("Woooz");
-        Node sampleTwo = new Node("Weeoooz");
+        String sample = "Woooz";
+        int sampleTwo = 5;
         Stack test = new Stack(sample);
         test.push(sampleTwo);
         assertEquals(sampleTwo, test.peek());
+    }
+
+    @Test
+    public void pushTestMultiple() {
+        String sample = "Woooz";
+        int sampleTwo = 5;
+        Stack test = new Stack(sample);
+        test.push(sampleTwo);
+        test.push("allow");
+        assertEquals("allow", test.peek());
+    }
+
+    @Test
+    public void popTestMultiple() {
+        String sample = "Woooz";
+        int sampleTwo = 5;
+        Stack test = new Stack(sample);
+        test.push(sampleTwo);
+        test.push("allow");
+        test.pop();
+        test.pop();
+        test.pop();
+        assertNull(test.peek());
     }
 }

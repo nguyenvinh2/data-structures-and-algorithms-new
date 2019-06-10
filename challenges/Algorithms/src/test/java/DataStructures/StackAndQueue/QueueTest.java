@@ -14,7 +14,7 @@ public class QueueTest {
 
     @Test
     public void peekTest() {
-        Node sample = new Node("Hweibh");
+        String sample = "Hweibh";
         Queue test = new Queue(sample);
         assertEquals(sample, test.peek());
     }
@@ -22,52 +22,56 @@ public class QueueTest {
     @Test
     public void enqueueFromNullTest() {
         Queue test = new Queue();
-        Node sample = new Node("Hweibh");
+        String sample = "Hweibh";
         test.enqueue(sample);
         assertEquals(sample, test.peek());
     }
 
     @Test
     public void enqueueTest() {
-        Node starting = new Node("Huhd");
+        int starting = 5;
         Queue test = new Queue(starting);
-        Node sample = new Node("Hweibh");
+        String sample ="Hweibh";
         test.enqueue(sample);
         assertEquals(starting, test.peek());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void enqueueNullTest() {
-        Node starting = new Node("Huhd");
+    @Test
+    public void enqueueTestMultiple() {
+        int starting = 5;
         Queue test = new Queue(starting);
-        test.enqueue(null);
+        String sample ="Hweibh";
+        test.enqueue(sample);
+        test.enqueue(5);
+        test.enqueue(new Node("allowed"));
+        assertEquals(starting, test.peek());
     }
 
     @Test
     public void dequeueTest() {
-        Node starting = new Node("Huhd");
+        int starting = 5;
         Queue test = new Queue(starting);
-        Node sample = new Node("Hweibh");
+        String sample = "Hweibh";
         test.enqueue(sample);
-        Node testRemoved = test.dequeue();
-        assertEquals(starting, testRemoved);
+        assertEquals(starting, test.dequeue());
         assertEquals(sample, test.peek());
     }
 
     @Test
     public void dequeueNullTest() {
         Queue test = new Queue();
-        Node testRemoved = test.dequeue();
-        assertNull(testRemoved);
+        assertNull(test.dequeue());
         assertNull(test.peek());
     }
 
     @Test
     public void dequeueLastTest() {
-        Node starting = new Node("Huhd");
+        String starting = "Huhd";
         Queue test = new Queue(starting);
-        Node testRemoved = test.dequeue();
-        assertEquals(starting, testRemoved);
+        test.enqueue(5);
+        assertEquals(starting, test.dequeue());
+        assertEquals(5, test.peek());
+        assertEquals(5, test.dequeue());
         assertNull(test.peek());
     }
 }
