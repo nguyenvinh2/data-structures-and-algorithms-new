@@ -14,6 +14,8 @@ Challenges
 
 6. [Merge List](./challenges/Algorithms/src/main/java/MergeList)
 
+7. [Queue With Stacks](./challenges/Algorithms/src/main/java/QueueWithStacks)
+
 Data Structures
 
 1. [Linked List](./challenges/Algorithms/src/main/java/DataStructures/LinkedList)

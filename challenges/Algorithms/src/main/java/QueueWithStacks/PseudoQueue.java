@@ -3,8 +3,8 @@ package QueueWithStacks;
 import DataStructures.StackAndQueue.*;
 
 public class PseudoQueue<T> {
-    private Stack stackOne = new Stack();
-    private Stack stackTwo = new Stack();
+    private Stack<T> stackOne = new Stack<T>();
+    private Stack<T> stackTwo = new Stack<T>();
 
     public PseudoQueue() {
     }

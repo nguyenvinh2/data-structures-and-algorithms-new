@@ -1,24 +1,23 @@
 package FIFOAnimalShelter;
 
-import DataStructures.StackAndQueue.Node;
 import DataStructures.StackAndQueue.Queue;
 
 import java.time.LocalDateTime;
 
 public class AnimalShelter {
-    private Queue catShelter = new Queue();
-    private Queue dogShelter = new Queue();
-    private Queue catTimestamp = new Queue();
-    private Queue dogTimestamp = new Queue();
+    private Queue<Animal> catShelter = new Queue<Animal>();
+    private Queue<Animal> dogShelter = new Queue<Animal>();
+    private Queue<LocalDateTime> catTimestamp = new Queue<LocalDateTime>();
+    private Queue<LocalDateTime> dogTimestamp = new Queue<LocalDateTime>();
 
     public void enqueue(Animal animal) {
         if (animal != null) {
             if (animal instanceof Dog) {
-                dogShelter.enqueue(new Node(animal));
-                dogTimestamp.enqueue(new Node(LocalDateTime.now()));
+                dogShelter.enqueue(animal);
+                dogTimestamp.enqueue(LocalDateTime.now());
             } else if (animal instanceof Cat) {
-                catShelter.enqueue((new Node(animal)));
-                catTimestamp.enqueue(new Node(LocalDateTime.now()));
+                catShelter.enqueue(animal);
+                catTimestamp.enqueue(LocalDateTime.now());
             }
         }
     }
