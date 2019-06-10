@@ -22,7 +22,7 @@ The Stack instances have only push, pop, and peek methods. You should use your o
         
 ## Approach & Efficiency
 
-[Solution Code](../DataStructures/LinkedList)
+[Test Code](../../../test/java/QueueWithStacks)
 
     Solved using while loops with stacks for enqueue
 
