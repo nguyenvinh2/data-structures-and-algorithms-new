@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class PseudoQueueTest {
 
     @Test
-    public void enqueueOrderTest() {
+    public void dequeueOrderTest() {
         PseudoQueue test = new PseudoQueue();
         test.enqueue(1);
         test.enqueue(2);
@@ -19,6 +19,15 @@ public class PseudoQueueTest {
         while(test.peek()!=null) {
             assertEquals(i+1, test.dequeue());
             i++;
+        }
+    }
+
+    @Test
+    public void enqueueOrderTest() {
+        PseudoQueue test = new PseudoQueue();
+        for(int i = 0; i < 5; i++) {
+          test.enqueue(i);
+          assertEquals(0, test.peek());
         }
     }
 
