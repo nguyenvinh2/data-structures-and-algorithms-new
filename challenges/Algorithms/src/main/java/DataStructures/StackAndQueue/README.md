@@ -8,15 +8,15 @@ Stack and Queue data structure for algorithm problem solving.
 
 Implement a Stack and a Queue. Your Stack should meet the following criteria:
 
-    O(1) - .push(Node node) - Add a node to the stack
-    O(1) - .pop() - removes and return the top node of the stack
-    O(1) - .peek() - returns the top node of the stack.
+    O(1) - .push(T input) - Add a node of the input value to the stack
+    O(1) - .pop() - removes and return the top node value of the stack
+    O(1) - .peek() - returns the top node value of the stack.
 
 Your Queue should meet the following criteria:
 
-    O(1) - .enqueue(Node node) - Add a node to the queue
-    O(1) - .dequeue() - removes and return the front node of the queue
-    O(1) - .peek() - returns the front node of the queue.
+    O(1) - .enqueue(T input) - Add a node of the input value to the queue
+    O(1) - .dequeue() - removes and return the front node value of the queue
+    O(1) - .peek() - returns the front node value of the queue.
 
 
 ## Approach & Efficiency
@@ -33,22 +33,22 @@ Your Queue should meet the following criteria:
         
         Instantiation:
         new Stack()
-        new Stack(Node input)
+        new Stack(T input)
         
         Methods:
-        push(Node input) - Add a node of any value to the top of the stack
-        pop() - remove and return the top node of the stack
-        peek() - return but not remove the top node of the stack.
+        push(T input) - Add a node of any value to the top of the stack
+        pop() - remove and return the top node value of the stack
+        peek() - return but not remove the top node value of the stack.
 
     Queue
     
         Instantiation:
         new Queue()
-        new Queue(Node node)
+        new Queue(T input)
         
         Methods:
-        enqueue(Node node) - Add a node of any value to the back of the queue
-        dequeue() - remove and return the front node of the queue
-        peek() - return but not remove the front node of the queue.
+        enqueue(T input) - Add a node of any value to the back of the queue
+        dequeue() - remove and return the front node value of the queue
+        peek() - return but not remove the front node value of the queue.
 
 ## Notes
