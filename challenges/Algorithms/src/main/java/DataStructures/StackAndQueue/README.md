@@ -4,17 +4,19 @@ Stack and Queue data structure for algorithm problem solving.
 
 ## Challenge
 
+### Assignment Requirements
+
 Implement a Stack and a Queue. Your Stack should meet the following criteria:
 
-    O(1) - .push(Node node) - Add a node to the stack
-    O(1) - .pop() - removes and return the top node of the stack
-    O(1) - .peek() - returns the top node of the stack.
+    O(1) - .push(T input) - Add a node of the input value to the stack
+    O(1) - .pop() - removes and return the top node value of the stack
+    O(1) - .peek() - returns the top node value of the stack.
 
 Your Queue should meet the following criteria:
 
-    O(1) - .enqueue(Node node) - Add a node to the queue
-    O(1) - .dequeue() - removes and return the front node of the queue
-    O(1) - .peek() - returns the front node of the queue.
+    O(1) - .enqueue(T input) - Add a node of the input value to the queue
+    O(1) - .dequeue() - removes and return the front node value of the queue
+    O(1) - .peek() - returns the front node value of the queue.
 
 
 ## Approach & Efficiency
@@ -28,15 +30,25 @@ Your Queue should meet the following criteria:
 ## API
 
     Stack
-    
-        push(Node node) - Add a node to the stack
-        pop() - removes and return the top node of the stack
-        peek() - returns the top node of the stack.
+        
+        Instantiation:
+        new Stack()
+        new Stack(T input)
+        
+        Methods:
+        push(T input) - Add a node of any value to the top of the stack
+        pop() - remove and return the top node value of the stack
+        peek() - return but not remove the top node value of the stack.
 
     Queue
     
-        enqueue(Node node) - Add a node to the queue
-        dequeue() - removes and return the front node of the queue
-        peek() - returns the front node of the queue.
+        Instantiation:
+        new Queue()
+        new Queue(T input)
+        
+        Methods:
+        enqueue(T input) - Add a node of any value to the back of the queue
+        dequeue() - remove and return the front node value of the queue
+        peek() - return but not remove the front node value of the queue.
 
 ## Notes
