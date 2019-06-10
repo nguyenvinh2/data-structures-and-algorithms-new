@@ -110,4 +110,25 @@ public class AnimalShelterTest {
         assertEquals("do32ge", test.dequeue("dog").name);
         assertNull(test.dequeue("dog"));
     }
+
+    @Test
+    public void AnimalEnqueueNoPreferenceTest() {
+        AnimalShelter test = new AnimalShelter();
+        test.enqueue(new Animal("Mitzy"));
+        assertNull(test.dequeue());
+    }
+
+    @Test
+    public void AnimalEnqueueDogPreferenceTest() {
+        AnimalShelter test = new AnimalShelter();
+        test.enqueue(new Animal("Mitzy"));
+        assertNull(test.dequeue("dog"));
+    }
+
+    @Test
+    public void AnimalEnqueueCatPreferenceTest() {
+        AnimalShelter test = new AnimalShelter();
+        test.enqueue(new Animal("Mitzy"));
+        assertNull(test.dequeue("cat"));
+    }
 }

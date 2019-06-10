@@ -19,7 +19,7 @@ public class AnimalShelter {
                 catShelter.enqueue(animal);
                 catTimeStamp.enqueue(LocalDateTime.now());
             } else {
-                System.out.println("Cannot add" + animal.getClass());
+                System.out.println("Cannot add " + animal.getClass());
             }
         } else {
             System.out.println("Cannot add null");
