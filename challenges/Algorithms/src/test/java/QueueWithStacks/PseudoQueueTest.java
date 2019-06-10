@@ -9,57 +9,41 @@ public class PseudoQueueTest {
 
     @Test
     public void enqueueOrderTest() {
-        Node one = new Node(1);
-        Node two = new Node(2);
-        Node three = new Node(3);
-        Node four = new Node(4);
-        Node five = new Node(5);
-
-        Node[] expected = new Node[]{one, two, three, four, five};
         PseudoQueue test = new PseudoQueue();
-        test.enqueue(one);
-        test.enqueue(two);
-        test.enqueue(three);
-        test.enqueue(four);
-        test.enqueue(five);
+        test.enqueue(1);
+        test.enqueue(2);
+        test.enqueue(3);
+        test.enqueue(4);
+        test.enqueue(5);
         int i = 0;
         while(test.peek()!=null) {
-            assertEquals(expected[i], test.dequeue());
+            assertEquals(i+1, test.dequeue());
             i++;
         }
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void enqueueNullTest() {
-        PseudoQueue test = new PseudoQueue();
-        test.enqueue(null);
-    }
-
     @Test()
     public void enqueueSingleTest() {
-        Node one = new Node("one");
         PseudoQueue test = new PseudoQueue();
-        test.enqueue(one);
-        assertEquals(one, test.peek());
+        test.enqueue("one");
+        assertEquals("one", test.peek());
     }
 
     @Test
     public void dequeueTest() {
-        Node one = new Node(1);
-        Node two = new Node(2);
         PseudoQueue test = new PseudoQueue();
-        test.enqueue(one);
-        test.enqueue(two);
-        Node result = test.dequeue();
-        assertEquals(one, result);
-        assertEquals(two, test.peek());
+        test.enqueue(1);
+        test.enqueue(2);
+        assertEquals(1, test.dequeue());
+        assertEquals(2, test.peek());
     }
 
     @Test
     public void dequeueNullTest() {
         PseudoQueue test = new PseudoQueue();
-        Node result = test.dequeue();
-        assertNull(result);
+        test.enqueue("a");
+        test.dequeue();
+        assertNull(test.dequeue());
     }
 
     @Test
@@ -71,8 +55,7 @@ public class PseudoQueueTest {
     @Test
     public void pseudoQueueNullTest() {
         PseudoQueue test = new PseudoQueue();
-        Node result = test.dequeue();
         assertNull(test.peek());
-        assertNull(result);
+        assertNull(test.dequeue());
     }
 }

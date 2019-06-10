@@ -27,7 +27,7 @@ public class AnimalShelter {
         switch (animal.toLowerCase()) {
             case "dog":
                 dogTimestamp.dequeue();
-                return (Animal)dogShelter.dequeue().value;
+                return (Animal)dogShelter.dequeue();
             case "cat":
                 break;
             default:
