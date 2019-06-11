@@ -1,6 +1,5 @@
 package QueueWithStacks;
 
-import DataStructures.StackAndQueue.Node;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

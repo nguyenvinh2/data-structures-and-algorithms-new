@@ -14,7 +14,7 @@ public class Queue<T> {
 
     public T peek() {
         if(front != null) {
-            return (T) front.value;
+            return front.value;
         } else {
             return null;
         }
@@ -36,7 +36,7 @@ public class Queue<T> {
             Node<T> removedNode = front;
             front = front.next;
             removedNode.next = null;
-            return (T) removedNode.value;
+            return removedNode.value;
         }
         return null;
     }

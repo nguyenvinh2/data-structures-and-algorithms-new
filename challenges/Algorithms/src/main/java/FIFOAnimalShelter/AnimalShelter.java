@@ -7,28 +7,33 @@ import java.time.LocalDateTime;
 public class AnimalShelter {
     private Queue<Animal> catShelter = new Queue<Animal>();
     private Queue<Animal> dogShelter = new Queue<Animal>();
-    private Queue<LocalDateTime> catTimestamp = new Queue<LocalDateTime>();
-    private Queue<LocalDateTime> dogTimestamp = new Queue<LocalDateTime>();
+    private Queue<LocalDateTime> catTimeStamp = new Queue<LocalDateTime>();
+    private Queue<LocalDateTime> dogTimeStamp = new Queue<LocalDateTime>();
 
     public void enqueue(Animal animal) {
         if (animal != null) {
             if (animal instanceof Dog) {
                 dogShelter.enqueue(animal);
-                dogTimestamp.enqueue(LocalDateTime.now());
+                dogTimeStamp.enqueue(LocalDateTime.now());
             } else if (animal instanceof Cat) {
                 catShelter.enqueue(animal);
-                catTimestamp.enqueue(LocalDateTime.now());
+                catTimeStamp.enqueue(LocalDateTime.now());
+            } else {
+                System.out.println("Cannot add " + animal.getClass());
             }
+        } else {
+            System.out.println("Cannot add null");
         }
     }
 
     public Animal dequeue(String animal) {
         switch (animal.toLowerCase()) {
             case "dog":
-                dogTimestamp.dequeue();
-                return (Animal)dogShelter.dequeue();
+                dogTimeStamp.dequeue();
+                return dogShelter.dequeue();
             case "cat":
-                break;
+                catTimeStamp.dequeue();
+                return catShelter.dequeue();
             default:
                 System.out.println("Other animal not supported at this time");
                 break;
@@ -36,8 +41,22 @@ public class AnimalShelter {
         return null;
     }
 
-    public void test() {
-        Dog happy = new Dog("happy");
-        enqueue(happy);
+    public Animal dequeue() {
+        if (catTimeStamp.peek() == null && dogTimeStamp.peek() !=null ) {
+            dogTimeStamp.dequeue();
+            return dogShelter.dequeue();
+        } else if (catTimeStamp.peek() != null && dogTimeStamp.peek() == null) {
+            catTimeStamp.dequeue();
+            return catShelter.dequeue();
+        } else if(catTimeStamp.peek() !=null && dogTimeStamp.peek() != null) {
+            if (catTimeStamp.peek().isAfter(dogTimeStamp.peek())) {
+                dogTimeStamp.dequeue();
+                return dogShelter.dequeue();
+            } else {
+                catTimeStamp.dequeue();
+                return catShelter.dequeue();
+            }
+        }
+        return null;
     }
 }
