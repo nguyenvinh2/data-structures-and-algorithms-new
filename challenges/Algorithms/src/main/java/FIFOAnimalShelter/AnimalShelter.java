@@ -7,17 +7,18 @@ import java.time.LocalDateTime;
 public class AnimalShelter {
     private Queue<Animal> catShelter = new Queue<Animal>();
     private Queue<Animal> dogShelter = new Queue<Animal>();
-    private Queue<LocalDateTime> catTimeStamp = new Queue<LocalDateTime>();
-    private Queue<LocalDateTime> dogTimeStamp = new Queue<LocalDateTime>();
+    private Queue catTimeStamp = new Queue();
+    private Queue dogTimeStamp = new Queue();
+    private int line = 0;
 
     public void enqueue(Animal animal) {
         if (animal != null) {
             if (animal instanceof Dog) {
                 dogShelter.enqueue(animal);
-                dogTimeStamp.enqueue(LocalDateTime.now());
+                dogTimeStamp.enqueue(line++);
             } else if (animal instanceof Cat) {
                 catShelter.enqueue(animal);
-                catTimeStamp.enqueue(LocalDateTime.now());
+                catTimeStamp.enqueue(line++);
             } else {
                 System.out.println("Cannot add " + animal.getClass());
             }
@@ -49,7 +50,7 @@ public class AnimalShelter {
             catTimeStamp.dequeue();
             return catShelter.dequeue();
         } else if(catTimeStamp.peek() !=null && dogTimeStamp.peek() != null) {
-            if (catTimeStamp.peek().isAfter(dogTimeStamp.peek())) {
+            if ((int)catTimeStamp.peek() > (int)dogTimeStamp.peek()) {
                 dogTimeStamp.dequeue();
                 return dogShelter.dequeue();
             } else {

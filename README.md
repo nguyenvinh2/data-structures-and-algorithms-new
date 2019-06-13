@@ -18,6 +18,9 @@ Challenges
 
 8. [FIFO Animal Shelter](./challenges/Algorithms/src/main/java/FIFOAnimalShelter)
 
+9. [Multi Bracket Validation](./challenges/Algorithms/src/main/java/MultiBracketValidation)
+
+
 Data Structures
 
 1. [Linked List](./challenges/Algorithms/src/main/java/DataStructures/LinkedList)
