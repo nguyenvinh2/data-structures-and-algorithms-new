@@ -187,4 +187,31 @@ public class BinaryTreeTest {
         }
     }
 
+    @Test
+    public void breadthFirstTest() {
+        BinaryTree test = new BinaryTree<Object>(3);
+        BinaryTree test2 = new BinaryTree<Object>(5);
+        BinaryTree test3 = new BinaryTree<Object>(15);
+        BinaryTree test4 = new BinaryTree<Object>(4);
+        BinaryTree test5 = new BinaryTree<Object>(8);
+        test.addLeftChild(test2.getRootNode());
+        test.addRightChild(test3.getRootNode());
+        test2.addLeftChild(test4.getRootNode());
+        test2.addRightChild(test5.getRootNode());
+        List expected = new ArrayList();
+        expected.add(3);
+        expected.add(5);
+        expected.add(15);
+        expected.add(4);
+        expected.add(8);
+
+        assertEquals(expected, test.breadthTraversal());
+    }
+
+    @Test
+    public void breadthFirstTestNull() {
+        BinaryTree test = new BinaryTree();
+        assertTrue(test.breadthTraversal().isEmpty());
+    }
+
 }

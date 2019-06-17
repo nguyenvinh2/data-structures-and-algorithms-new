@@ -1,39 +1,37 @@
-# Queue With Stacks
+# Fizz Buzz Tree
 
-Multi-bracket Validation.
+Conduct “FizzBuzz” on a tree while traversing through it. Change the values of each of the nodes dependent on the current node’s value
 
-## Challenge
+## Challenge Requirements
 
-Create a validation method that takes in a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets:
+Write a function called FizzBuzzTree which takes a tree as an argument.
+Without utilizing any of the built-in methods available to your language, determine weather or not the value of each node is divisible by 3, 5 or both, and change the value of each of the nodes:
 
-    Round Brackets : ()
-    Square Brackets : []
-    Curly Brackets : {}
+    If the value is divisible by 3, replace the value with “Fizz”
+    If the value is divisible by 5, replace the value with “Buzz”
+    If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
+
+Return the tree with its new values.
+
 
 Visual
 
-    Input 	                    Output
-    {} 	                    TRUE
-    {}(){} 	                    TRUE
-    ()[[Extra Characters]] 	    TRUE
-    (){}[[]] 	            TRUE
-    {}{Code}[Fellows](()) 	    TRUE
-    [({}] 	                    FALSE
-    (]( 	                    FALSE
-    {(}) 	                    FALSE
-        
+                 3          =>          Fizz
+                /\                       /\
+               5  8                   Buzz 8
+              /\                       /\
+             4  15                    4  FizzBuzz
+
 ## Approach & Efficiency
 
-[Test Code](../../../test/java/MultiBracketValidation)
-
-    Solved using for loop and a Stack
+[Test Code](../../../test/java/FizzBuzzTree)
 
     Big O:
-      Space -> O(N) - Stacks take up spaced dependent on the number of brackets.
-      Time -> O(N) - for loops dependeds on the number of Nodes
+      Space -> O(1) -  Using existing Tee
+      Time -> O(N) - Have to go through entire tree
 
 ## Solution
 
-![Kth](../../../../../../assets/multi_bracket_validation.jpg)
+![Kth](../../../../../../assets/fizz_buzz_tree.jpg)
 
 ## Notes

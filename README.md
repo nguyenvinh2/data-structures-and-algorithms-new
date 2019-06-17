@@ -20,6 +20,12 @@ Challenges
 
 9. [Multi Bracket Validation](./challenges/Algorithms/src/main/java/MultiBracketValidation)
 
+10. [Fizz Buzz Tree](./challenges/Algorithms/src/main/java/FizzBuzzTree)
+
+11. [Breadth First Traversal](./challenges/Algorithms/src/main/java/BreadthFirst)
+
+12. [Binary Tree Maximum Value](./challenges/Algorithms/src/main/java/MaximumValue)
+
 
 Data Structures
 

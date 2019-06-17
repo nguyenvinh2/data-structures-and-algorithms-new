@@ -1,3 +1,5 @@
+package FizzBuzzTree;
+
 import DataStructures.Tree.BinaryTree;
 import DataStructures.Tree.Node;
 

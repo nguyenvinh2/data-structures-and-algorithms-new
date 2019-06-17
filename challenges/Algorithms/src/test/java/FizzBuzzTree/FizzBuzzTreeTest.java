@@ -1,3 +1,5 @@
+package FizzBuzzTree;
+
 import DataStructures.Tree.BinaryTree;
 import FizzBuzzTree.FizzBuzzTree;
 import org.junit.Test;
