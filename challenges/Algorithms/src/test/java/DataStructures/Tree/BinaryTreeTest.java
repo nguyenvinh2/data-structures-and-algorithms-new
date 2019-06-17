@@ -39,6 +39,54 @@ public class BinaryTreeTest {
     }
 
     @Test
+    public void addLeftChildTestDefault() {
+        BinaryTree<String> testTree = new BinaryTree("Root");
+        testTree.addLeftChild("Left Child");
+        assertEquals("Left Child", testTree.getRootNode().left.value);
+    }
+
+    @Test
+    public void addRightChildTestDefault() {
+        BinaryTree<String> testTree = new BinaryTree("Root");
+        testTree.addRightChild("Right Child");
+        assertEquals("Right Child", testTree.getRootNode().right.value);
+    }
+
+    @Test
+    public void addLeftChildTestTree() {
+        BinaryTree<String> testTree = new BinaryTree("Root");
+        BinaryTree<String> leftTestTree = new BinaryTree("Left Child");
+        testTree.addLeftChild(leftTestTree.getRootNode());
+        assertEquals(leftTestTree.getRootNode(), testTree.getRootNode().left);
+    }
+
+    @Test
+    public void addRightChildTestTree() {
+        BinaryTree<String> testTree = new BinaryTree("Root");
+        BinaryTree<String> rightTestTree = new BinaryTree("Right Child");
+        testTree.addRightChild(rightTestTree.getRootNode());
+        assertEquals(rightTestTree.getRootNode(), testTree.getRootNode().right);
+    }
+
+    @Test
+    public void addLeftChildTestSelectRoot() {
+        BinaryTree<String> testTree = new BinaryTree("Root");
+        BinaryTree<String> leftTestTree = new BinaryTree("Left Child");
+        testTree.addLeftChild(testTree.getRootNode(), leftTestTree.getRootNode());
+        assertEquals(leftTestTree.getRootNode(), testTree.getRootNode().left);
+    }
+
+    @Test
+    public void addRightChildTestTreeSelectRoot() {
+        BinaryTree<String> testTree = new BinaryTree("Root");
+        BinaryTree<String> rightTestTree = new BinaryTree("Right Child");
+        testTree.addRightChild(testTree.getRootNode(), rightTestTree.getRootNode());
+        assertEquals(rightTestTree.getRootNode(), testTree.getRootNode().right);
+    }
+
+
+
+    @Test
     public void addLeftChildTest() {
         BinaryTree<String> testTree = new BinaryTree("Root");
         testTree.addLeftChild(testTree.getRootNode(), "Left Child");

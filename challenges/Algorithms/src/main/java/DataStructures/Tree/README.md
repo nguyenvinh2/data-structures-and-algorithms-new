@@ -50,6 +50,8 @@ Create a Tree Data Structure
         Methods:
         getRoot() - returns value of root node.
         getRootNode() - retuns root node.
+        addLeftChild(T input) - sets value as left child to object's root.
+        addRightChild(T input) - sets value as right child to object's root.
         addLeftChild(Node root, T input) - sets value as left child to the selected node
         addRightChild(Node root, T input) - sets valueas right child to the selected node
         inOrder() - retuns a list of values in order.
