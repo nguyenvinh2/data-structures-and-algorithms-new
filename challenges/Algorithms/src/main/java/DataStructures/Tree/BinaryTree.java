@@ -120,17 +120,40 @@ public class BinaryTree<T> {
 
     private void breadthTraversal(Node input) {
         Queue breadthQueue = new Queue(input);
-        while(breadthQueue.peek() != null) {
+        while (breadthQueue.peek() != null) {
             Node temp = (Node) breadthQueue.dequeue();
-            values.add((T)temp.value);
-            if (temp.left != null)
-            {
+            values.add((T) temp.value);
+            if (temp.left != null) {
                 breadthQueue.enqueue(temp.left);
             }
-            if (temp.right != null)
-            {
+            if (temp.right != null) {
                 breadthQueue.enqueue(temp.right);
             }
+        }
+    }
+
+    public double findMaximumValue() {
+        double maxValue = Double.NEGATIVE_INFINITY;
+        if (root != null) {
+            return findMaximumValue(maxValue, root);
+        }
+        System.out.println("Tree appears to be empty");
+        return maxValue;
+    }
+
+    private double findMaximumValue(double maxValue, Node root) {
+        try {
+            if (root != null) {
+                double value = Double.parseDouble(root.value.toString());
+                if (value > maxValue) {
+                    maxValue = value;
+                }
+                maxValue = findMaximumValue(maxValue, root.left);
+                maxValue = findMaximumValue(maxValue, root.right);
+            }
+            return maxValue;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Please ensure all inputs are numeric");
         }
     }
 }

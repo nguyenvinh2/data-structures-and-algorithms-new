@@ -235,4 +235,72 @@ public class BinaryTreeTest {
         assertTrue(test.breadthTraversal().isEmpty());
     }
 
+    @Test
+    public void findMaxValueTest() {
+        BinaryTree test = new BinaryTree<Object>(3);
+        BinaryTree test2 = new BinaryTree<Object>(5);
+        BinaryTree test3 = new BinaryTree<Object>(15);
+        BinaryTree test4 = new BinaryTree<Object>(4);
+        BinaryTree test5 = new BinaryTree<Object>(8);
+        test.addLeftChild(test2.getRootNode());
+        test.addRightChild(test3.getRootNode());
+        test2.addLeftChild(test4.getRootNode());
+        test2.addRightChild(test5.getRootNode());
+        double expected = 15;
+
+        assertEquals(expected, test.findMaximumValue(), 0);
+    }
+
+    @Test
+    public void findMaxValueTestNull() {
+        BinaryTree test = new BinaryTree<Object>();
+        double expected = 15;
+
+        assertEquals(Double.MIN_VALUE, test.findMaximumValue(), 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void findMaxValueTestNonNumeric() {
+        BinaryTree test = new BinaryTree<Object>("this");
+        BinaryTree test2 = new BinaryTree<Object>("will");
+        BinaryTree test3 = new BinaryTree<Object>("break");
+        BinaryTree test4 = new BinaryTree<Object>("the");
+        BinaryTree test5 = new BinaryTree<Object>("machine");
+        test.addLeftChild(test2.getRootNode());
+        test.addRightChild(test3.getRootNode());
+        test2.addLeftChild(test4.getRootNode());
+        test2.addRightChild(test5.getRootNode());
+        double expected = 15;
+        assertEquals(expected, test.findMaximumValue(), 0);
+    }
+
+    @Test
+    public void findMaxValueTestNegative() {
+        BinaryTree test = new BinaryTree<Object>(-3);
+        BinaryTree test2 = new BinaryTree<Object>(-5);
+        BinaryTree test3 = new BinaryTree<Object>(-15);
+        BinaryTree test4 = new BinaryTree<Object>(-2);
+        BinaryTree test5 = new BinaryTree<Object>(-8);
+        test.addLeftChild(test2.getRootNode());
+        test.addRightChild(test3.getRootNode());
+        test2.addLeftChild(test4.getRootNode());
+        test2.addRightChild(test5.getRootNode());
+        double expected = -2;
+        assertEquals(expected, test.findMaximumValue(), 0);
+    }
+
+    @Test
+    public void findMaxValueTestDouble() {
+        BinaryTree test = new BinaryTree<Object>(3.723);
+        BinaryTree test2 = new BinaryTree<Object>(53.235);
+        BinaryTree test3 = new BinaryTree<Object>(15.3235);
+        BinaryTree test4 = new BinaryTree<Object>(-2);
+        BinaryTree test5 = new BinaryTree<Object>(-85.32);
+        test.addLeftChild(test2.getRootNode());
+        test.addRightChild(test3.getRootNode());
+        test2.addLeftChild(test4.getRootNode());
+        test2.addRightChild(test5.getRootNode());
+        double expected = 53.235;
+        assertEquals(expected, test.findMaximumValue(), 0);
+    }
 }
