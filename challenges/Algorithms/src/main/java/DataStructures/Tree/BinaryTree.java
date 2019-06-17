@@ -1,9 +1,11 @@
 package DataStructures.Tree;
 
+import DataStructures.StackAndQueue.Queue;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class BinaryTree <T>{
+public class BinaryTree<T> {
 
     private List<T> values;
 
@@ -18,14 +20,15 @@ public class BinaryTree <T>{
     }
 
     public void setRoot(T input) {
-        if(root != null) {
+        if (root != null) {
             System.out.println("This tree already has a root node");
         } else {
             root = new Node(input);
         }
     }
 
-    public BinaryTree() {}
+    public BinaryTree() {
+    }
 
     public BinaryTree(T input) {
         root = new Node(input);
@@ -84,7 +87,7 @@ public class BinaryTree <T>{
 
     private List<T> preOrder(Node input) {
         if (input != null) {
-            values.add((T)input.value);
+            values.add((T) input.value);
             preOrder(input.left);
             preOrder(input.right);
         }
@@ -94,7 +97,7 @@ public class BinaryTree <T>{
     private List<T> inOrder(Node root) {
         if (root != null) {
             inOrder(root.left);
-            values.add((T)root.value);
+            values.add((T) root.value);
             inOrder(root.right);
         }
         return values;
@@ -104,8 +107,30 @@ public class BinaryTree <T>{
         if (root != null) {
             postOrder(root.left);
             postOrder(root.right);
-            values.add((T)root.value);
+            values.add((T) root.value);
         }
         return values;
+    }
+
+    public List<T> breadthTraversal() {
+        values = new ArrayList<>();
+        breadthTraversal(root);
+        return values;
+    }
+
+    private void breadthTraversal(Node input) {
+        Queue breadthQueue = new Queue(input);
+        while(breadthQueue.peek() != null) {
+            Node temp = (Node) breadthQueue.dequeue();
+            values.add((T)temp.value);
+            if (temp.left != null)
+            {
+                breadthQueue.enqueue(temp.left);
+            }
+            if (temp.right != null)
+            {
+                breadthQueue.enqueue(temp.right);
+            }
+        }
     }
 }
