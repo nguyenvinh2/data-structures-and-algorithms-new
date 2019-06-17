@@ -22,20 +22,17 @@ public class FizzBuzzTree {
 
     private static Object FizzBuzz(Object value)
     {
-        if ((int)value % 3 == 0 && (int)value % 5 != 0)
-        {
-            return "Fizz";
-        }
-        else if ((int)value % 5 == 0 && (int)value % 3 != 0)
-        {
-            return "Buzz";
-        }
-        else if ((int)value % 5 == 0 && (int)value % 3 == 0)
-        {
-            return "FizzBuzz";
-        }
-        else
-        {
+        try {
+            if ((int) value % 3 == 0 && (int) value % 5 != 0) {
+                return "Fizz";
+            } else if ((int) value % 5 == 0 && (int) value % 3 != 0) {
+                return "Buzz";
+            } else if ((int) value % 5 == 0 && (int) value % 3 == 0) {
+                return "FizzBuzz";
+            } else {
+                return value;
+            }
+        } catch(Exception e) {
             return value;
         }
 

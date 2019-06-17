@@ -86,4 +86,26 @@ public class FizzBuzzTreeTest {
 
         assertEquals(expected, test.preOrder());
     }
+
+    @Test
+    public void fizzBuzzTreeTestNonNumbers() {
+        BinaryTree test = new BinaryTree<Object>("None");
+        BinaryTree test2 = new BinaryTree<Object>("of");
+        BinaryTree test3 = new BinaryTree<Object>("these");
+        BinaryTree test4 = new BinaryTree<Object>("are");
+        BinaryTree test5 = new BinaryTree<Object>("words");
+        test.addLeftChild(test2.getRootNode());
+        test2.addLeftChild(test3.getRootNode());
+        test3.addLeftChild(test4.getRootNode());
+        test4.addLeftChild(test5.getRootNode());
+        FizzBuzzTree.FizzBuzzTree(test);
+        List expected = new ArrayList();
+        expected.add("None");
+        expected.add("of");
+        expected.add("these");
+        expected.add("are");
+        expected.add("words");
+
+        assertEquals(expected, test.preOrder());
+    }
 }
