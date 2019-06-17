@@ -31,12 +31,37 @@ public class BinaryTree <T>{
         root = new Node(input);
     }
 
+    public void addLeftChild(T leftChild) {
+        root.left = new Node(leftChild);
+    }
+
+    public void addRightChild(T rightChild) {
+        root.right = new Node(rightChild);
+    }
+
     public void addLeftChild(Node leftChild) {
         root.left = leftChild;
     }
 
     public void addRightChild(Node rightChild) {
-        root.left = rightChild;
+        root.right = rightChild;
+    }
+
+    public void addLeftChild(Node root, T leftChild) {
+        root.left = new Node(leftChild);
+    }
+
+    public void addRightChild(Node root, T rightChild) {
+        root.right = new Node(rightChild);
+    }
+
+
+    public void addLeftChild(Node root, Node leftChild) {
+        root.left = leftChild;
+    }
+
+    public void addRightChild(Node root, Node rightChild) {
+        root.right = rightChild;
     }
 
     public List<T> preOrder() {
