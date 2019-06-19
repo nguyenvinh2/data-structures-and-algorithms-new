@@ -209,6 +209,27 @@ public class BinaryTreeTest {
     }
 
     @Test
+    public void breadthFirstTestNonNumeric() {
+        BinaryTree test = new BinaryTree<Object>("No");
+        BinaryTree test2 = new BinaryTree<Object>("numbers");
+        BinaryTree test3 = new BinaryTree<Object>("into");
+        BinaryTree test4 = new BinaryTree<Object>("the");
+        BinaryTree test5 = new BinaryTree<Object>("abyss");
+        test.addLeftChild(test2.getRootNode());
+        test.addRightChild(test3.getRootNode());
+        test2.addLeftChild(test4.getRootNode());
+        test2.addRightChild(test5.getRootNode());
+        List expected = new ArrayList();
+        expected.add("No");
+        expected.add("numbers");
+        expected.add("into");
+        expected.add("the");
+        expected.add("abyss");
+
+        assertEquals(expected, test.breadthTraversal());
+    }
+
+    @Test
     public void breadthFirstTestNull() {
         BinaryTree test = new BinaryTree();
         assertTrue(test.breadthTraversal().isEmpty());
