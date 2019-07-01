@@ -16,7 +16,7 @@ How to implement an insertion sort.
 
 ## Diagram
 
-![Insertion](./insertion.jpg)
+![Insertion](insertion.jpg)
 
 ## Algorithm
 

@@ -35,7 +35,7 @@ Complete a working, tested implementation of Insertion Sort, based on the pseudo
       O(N^2) due to nested loops
 
 
-## Solution: [See Lecture](./LECTURE_NOTES.md)
+## Solution: [See Lecture](LECTURE_NOTES.md)
 
     Use nested loops.
     iterate forward in the for loop starting from the second index till the end
