@@ -34,3 +34,7 @@ Data Structures
 2. [Stack and Queue](./challenges/Algorithms/src/main/java/DataStructures/StackAndQueue)
 
 3. [Tree](./challenges/Algorithms/src/main/java/DataStructures/Tree)
+
+Sorting Algorithms
+
+1. [Insertion Sort](./challenges/Algorithms/src/main/java/Sorting/InsertionSort)
