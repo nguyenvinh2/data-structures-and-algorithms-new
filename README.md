@@ -38,3 +38,5 @@ Data Structures
 Sorting Algorithms
 
 1. [Insertion Sort](./challenges/Algorithms/src/main/java/Sorting/InsertionSort)
+
+1. [Merge Sort](./challenges/Algorithms/src/main/java/Sorting/MergeSort)
