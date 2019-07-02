@@ -1,10 +1,12 @@
-package Sorting.InsertionSort;
+package Sorting.QuickSort;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
-public class InsertionSortTest {
+public class QuickSortTest {
 
     @Test
     public void sortTestNormal() {
@@ -15,7 +17,7 @@ public class InsertionSortTest {
             assertEquals(test[i], test[i]);
         }
 
-        InsertionSort.sort(test);
+        QuickSort.sort(test);
         for(int i = 0; i < test.length; i++) {
             assertEquals(expected[i], test[i]);
         }
@@ -24,7 +26,10 @@ public class InsertionSortTest {
     @Test
     public void sortTestNull() {
         int[] test = new int[] {};
-        InsertionSort.sort(test);
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(null, test[i]);
+        }
+        QuickSort.sort(test);
         for(int i = 0; i < test.length; i++) {
             assertEquals(null, test[i]);
         }
@@ -37,7 +42,7 @@ public class InsertionSortTest {
         for(int i = 0; i < test.length; i++) {
             assertEquals(5, test[i]);
         }
-        InsertionSort.sort(test);
+        QuickSort.sort(test);
         for(int i = 0; i < test.length; i++) {
             assertEquals(5, test[i]);
         }
@@ -52,7 +57,11 @@ public class InsertionSortTest {
             assertEquals(test[i], test[i]);
         }
 
-        InsertionSort.sort(test);
+        System.out.println(Arrays.toString(test));
+
+        QuickSort.sort(test);
+
+        System.out.println(Arrays.toString(test));
 
         for(int i = 0; i < test.length; i++) {
             assertEquals(expected[i], test[i]);
