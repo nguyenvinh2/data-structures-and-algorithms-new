@@ -39,4 +39,6 @@ Sorting Algorithms
 
 1. [Insertion Sort](./challenges/Algorithms/src/main/java/Sorting/InsertionSort)
 
-1. [Merge Sort](./challenges/Algorithms/src/main/java/Sorting/MergeSort)
+2. [Merge Sort](./challenges/Algorithms/src/main/java/Sorting/MergeSort)
+
+3. [Quick Sort](./challenges/Algorithms/src/main/java/Sorting/QuickSort)
