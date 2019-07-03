@@ -40,7 +40,7 @@ How to implement a merge sort.
         
 ## Pseudo
 
-ALGORITHM Mergesort(arr)
+            ALGORITHM Mergesort(arr)
             DECLARE n <-- arr.length
                    
             if arr.length > 1

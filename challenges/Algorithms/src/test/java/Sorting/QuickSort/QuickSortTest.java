@@ -26,13 +26,8 @@ public class QuickSortTest {
     @Test
     public void sortTestNull() {
         int[] test = new int[] {};
-        for(int i = 0; i < test.length; i++) {
-            assertEquals(null, test[i]);
-        }
         QuickSort.sort(test);
-        for(int i = 0; i < test.length; i++) {
-            assertEquals(null, test[i]);
-        }
+        assertEquals(0, test.length);
     }
 
 
@@ -52,6 +47,66 @@ public class QuickSortTest {
     public void sortTestNegative() {
         int[] test = new int[] {5,4,67,23,78,-5,-2,-8,-17};
         int[] expected = new int[] {-17,-8,-5,-2,4,5,23,67,78};
+
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(test[i], test[i]);
+        }
+
+        System.out.println(Arrays.toString(test));
+
+        QuickSort.sort(test);
+
+        System.out.println(Arrays.toString(test));
+
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(expected[i], test[i]);
+        }
+    }
+
+    @Test
+    public void sortTestSame() {
+        int[] test = new int[] {9,9,9,9,9,9,9,9,9,9};
+        int[] expected = new int[] {9,9,9,9,9,9,9,9,9,9};
+
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(test[i], test[i]);
+        }
+
+        System.out.println(Arrays.toString(test));
+
+        QuickSort.sort(test);
+
+        System.out.println(Arrays.toString(test));
+
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(expected[i], test[i]);
+        }
+    }
+
+    @Test
+    public void sortTestAlreadySorted() {
+        int[] test = new int[] {1,2,3,4,5,6,7,8,9,10};
+        int[] expected = new int[] {1,2,3,4,5,6,7,8,9,10};
+
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(test[i], test[i]);
+        }
+
+        System.out.println(Arrays.toString(test));
+
+        QuickSort.sort(test);
+
+        System.out.println(Arrays.toString(test));
+
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(expected[i], test[i]);
+        }
+    }
+
+    @Test
+    public void sortTestOtherCases() {
+        int[] test = new int[] {1,2,3,4,5,5,4,3,2,1};
+        int[] expected = new int[] {1,1,2,2,3,3,4,4,5,5};
 
         for(int i = 0; i < test.length; i++) {
             assertEquals(test[i], test[i]);

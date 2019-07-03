@@ -48,8 +48,6 @@ Complete a working, tested implementation of Merge Sort, based on the pseudo cod
 
 ## Approach & Efficiency
 
-    Collection of Nodes to store data, similary to Linked Lists but differs in order
-
     Big O:
       Space -> O(N)
       
