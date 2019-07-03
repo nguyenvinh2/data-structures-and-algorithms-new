@@ -102,4 +102,24 @@ public class QuickSortTest {
             assertEquals(expected[i], test[i]);
         }
     }
+
+    @Test
+    public void sortTestOtherCases() {
+        int[] test = new int[] {1,2,3,4,5,5,4,3,2,1};
+        int[] expected = new int[] {1,1,2,2,3,3,4,4,5,5};
+
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(test[i], test[i]);
+        }
+
+        System.out.println(Arrays.toString(test));
+
+        QuickSort.sort(test);
+
+        System.out.println(Arrays.toString(test));
+
+        for(int i = 0; i < test.length; i++) {
+            assertEquals(expected[i], test[i]);
+        }
+    }
 }
