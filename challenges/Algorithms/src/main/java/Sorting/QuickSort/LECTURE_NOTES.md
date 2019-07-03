@@ -17,6 +17,7 @@ How to implement a quick sort.
 ## Diagram
 
 ![Insertion](quicksort.png)
+
 [Source](https://www.techiedelight.com/quicksort/)
 
 ## Algorithm
@@ -91,7 +92,7 @@ How to implement a quick sort.
 ### Read
 
 - [Reading #1](https://www.geeksforgeeks.org/quick-sort/)
-- [Reading #2](https://en.wikipedia.org/wiki/Merge_sort)
+- [Reading #2](https://en.wikipedia.org/wiki/Quicksort)
 
 ### Bookmark
 
