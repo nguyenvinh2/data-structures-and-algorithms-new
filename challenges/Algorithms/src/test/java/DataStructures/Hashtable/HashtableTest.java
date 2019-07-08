@@ -71,6 +71,13 @@ public class HashtableTest {
     }
 
     @Test
+    public void containsTestTrueTwo() {
+        Hashtable input = new Hashtable();
+        input.add("a", 6);
+        assertTrue(input.contains("a"));
+    }
+
+    @Test
     public void containsTestFalse() {
         Hashtable input = new Hashtable();
         input.add("KeyOne", 6);
