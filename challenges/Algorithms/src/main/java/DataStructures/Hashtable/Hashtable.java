@@ -55,8 +55,9 @@ public class Hashtable<T> {
     }
 
     public static int hash(String key) {
-        if (key.toCharArray().length == 0)
+        if (key.toCharArray().length == 0) {
             return 0;
+        }
         int sum = 0;
         int n = key.toCharArray().length;
         for (int i = 0; i < n - 1; i++) {
