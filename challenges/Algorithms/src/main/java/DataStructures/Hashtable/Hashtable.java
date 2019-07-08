@@ -3,30 +3,34 @@ package DataStructures.Hashtable;
 import DataStructures.LinkedList.LinkedList;
 import DataStructures.LinkedList.Node;
 
-public class Hashtable {
+public class Hashtable<T> {
 
     private LinkedList[] collisionList = new LinkedList[1024];
 
-    public void add(String key, String value) {
+    public void add(String key, T value) {
         int index = hash(key);
-        PairNode input = new PairNode(key, value);
+        PairNode<T> input = new PairNode(key, value);
         if (collisionList[index] == null) {
             LinkedList New = new LinkedList();
             New.append(new Node(input));
             collisionList[index] = New;
         } else {
-            collisionList[index].append(new Node(input));
+            if(!contains(key)) {
+                collisionList[index].append(new Node(input));
+            } else {
+                throw new IllegalArgumentException("This key has already been used");
+            }
         }
     }
 
-    public String get(String key) {
+    public T get(String key) {
         int index = hash(key);
         if (collisionList[index] != null) {
             while (collisionList[index].current != null) {
                 PairNode output = (PairNode) collisionList[index].current.value;
 
                 if (output.getKey() == key) {
-                    return output.getValue();
+                    return (T)output.getValue();
                 } else {
                     collisionList[index].current = collisionList[index].current.next;
                 }
@@ -63,7 +67,7 @@ public class Hashtable {
     }
 }
 
-class PairNode {
+class PairNode<T> {
     public String getKey() {
         return key;
     }
@@ -72,19 +76,19 @@ class PairNode {
         this.key = key;
     }
 
-    public String getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
-    public PairNode(String key, String value) {
+    public PairNode(String key, T value) {
         this.key = key;
         this.value = value;
     }
 
     private String key;
-    private String value;
+    private T value;
 }
