@@ -28,8 +28,7 @@ public class Hashtable<T> {
         if (collisionList[index] != null) {
             while (collisionList[index].current != null) {
                 PairNode output = (PairNode) collisionList[index].current.value;
-
-                if (output.getKey() == key) {
+                if (output.getKey().equals(key)) {
                     return (T)output.getValue();
                 } else {
                     collisionList[index].current = collisionList[index].current.next;
@@ -44,7 +43,7 @@ public class Hashtable<T> {
         if (collisionList[index] != null) {
             while (collisionList[index].current != null) {
                 PairNode output = (PairNode) collisionList[index].current.value;
-                if (output.getKey() == key) {
+                if (output.getKey().equals(key)) {
                     return true;
                 } else {
                     collisionList[index].current = collisionList[index].current.next;
