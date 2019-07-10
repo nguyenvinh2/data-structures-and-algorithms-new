@@ -26,6 +26,7 @@ public class Hashtable<T> {
     public T get(String key) {
         int index = hash(key);
         if (collisionList[index] != null) {
+            collisionList[index].current = collisionList[index].head;
             while (collisionList[index].current != null) {
                 PairNode output = (PairNode) collisionList[index].current.value;
                 if (output.getKey().equals(key)) {
@@ -41,6 +42,7 @@ public class Hashtable<T> {
     public boolean contains(String key) {
         int index = hash(key);
         if (collisionList[index] != null) {
+            collisionList[index].current = collisionList[index].head;
             while (collisionList[index].current != null) {
                 PairNode output = (PairNode) collisionList[index].current.value;
                 if (output.getKey().equals(key)) {
