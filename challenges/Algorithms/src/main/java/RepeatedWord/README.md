@@ -25,7 +25,7 @@ Find the first repeated word in a book.
 
 ## Solution:
  
-![See Lecture]../../../../../../assets/repeated_word.jpg
+![See Lecture](../../../../../../assets/repeated_word.jpg)
 
   
 ## Notes

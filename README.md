@@ -26,6 +26,8 @@ Challenges
 
 12. [Binary Tree Maximum Value](./challenges/Algorithms/src/main/java/MaximumValue)
 
+13. [Repeated Word](./challenges/Algorithms/src/main/java/RepeatedWord)
+
 
 Data Structures
 
