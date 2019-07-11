@@ -28,6 +28,8 @@ Challenges
 
 13. [Repeated Word](./challenges/Algorithms/src/main/java/RepeatedWord)
 
+14. [Tree Intersection](./challenges/Algorithms/src/main/java/TreeIntersection)
+
 
 Data Structures
 

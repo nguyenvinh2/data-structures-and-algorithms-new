@@ -27,7 +27,7 @@ Find common values in two trees.
 
 ## Solution:
  
-![See Lecture](../../../../../../assets/)
+![See Lecture](../../../../../../assets/tree_intersection.jpg)
 
   
 ## Notes
