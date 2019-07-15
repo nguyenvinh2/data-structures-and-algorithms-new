@@ -22,6 +22,13 @@ public class Graph<T> {
     }
 
     public Node addNode(T value) {
+        adjacencyList.current = adjacencyList.head;
+        while(adjacencyList.current != null) {
+            if (adjacencyList.current.value.head.value.getNode().value.equals(value)) {
+                throw new IllegalArgumentException("This value already exists in the graph");
+            }
+            adjacencyList.current = adjacencyList.current.next;
+        }
         Node input = new Node(value);
         LinkedList<Tuple<Node>> addList = new LinkedList();
         Tuple data = new Tuple(input);
@@ -31,17 +38,25 @@ public class Graph<T> {
     }
 
     public void addEdge(Node parent, Node child, T weight) {
+        if(child == parent) {
+            throw new IllegalArgumentException("Both nodes cannot be the same");
+        }
         LinkedList parentList = new LinkedList(), childList = new LinkedList();
         boolean parentExist = false, childExist = false;
         adjacencyList.current = adjacencyList.head;
         while (adjacencyList.current != null) {
             if (adjacencyList.current.value.head.value.getNode() == parent) {
-                System.out.println(adjacencyList.current.value.head.value.getNode().value);
+                adjacencyList.current.value.current = adjacencyList.current.value.head;
+                while(adjacencyList.current.value.current != null) {
+                    if(adjacencyList.current.value.current.value.getNode() == child) {
+                        throw new IllegalArgumentException("There is already an edge between the two nodes");
+                    }
+                    adjacencyList.current.value.current = adjacencyList.current.value.current.next;
+                }
                 parentExist = true;
                 parentList = adjacencyList.current.value;
             }
             if (adjacencyList.current.value.head.value.getNode() == child) {
-                System.out.println(adjacencyList.current.value.head.value.getNode().value);
                 childExist = true;
                 childList = adjacencyList.current.value;
             }
@@ -66,7 +81,7 @@ public class Graph<T> {
         List<Node> nodeList = new ArrayList<>();
         adjacencyList.current = adjacencyList.head;
         while (adjacencyList.current != null) {
-            nodeList.add(adjacencyList.current.value.head);
+            nodeList.add(adjacencyList.current.value.head.value.getNode());
             adjacencyList.current = adjacencyList.current.next;
         }
         return nodeList;
@@ -76,9 +91,9 @@ public class Graph<T> {
         List<Tuple> neighborList = new ArrayList<>();
         adjacencyList.current = adjacencyList.head;
         while (adjacencyList.current != null) {
-            if(adjacencyList.current.value.head == parent) {
-                adjacencyList.current.value.current = adjacencyList.current.value.head;
-                while(adjacencyList.current.value.current == null) {
+            if(adjacencyList.current.value.head.value.getNode() == parent) {
+                adjacencyList.current.value.current = adjacencyList.current.value.head.next;
+                while(adjacencyList.current.value.current != null) {
                     neighborList.add(adjacencyList.current.value.current.value);
                     adjacencyList.current.value.current = adjacencyList.current.value.current.next;
                 }
@@ -89,7 +104,7 @@ public class Graph<T> {
         return neighborList;
     }
 
-    public int getSize() {
+    public int size() {
         int count = 0;
         adjacencyList.current = adjacencyList.head;
         while (adjacencyList.current != null) {
