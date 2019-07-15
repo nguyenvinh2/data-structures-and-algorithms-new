@@ -113,4 +113,25 @@ public class Graph<T> {
         }
         return count;
     }
+
+    public List<Node> breadthFirst(Node parent) {
+        if(parent == null) {
+            return null;
+        }
+        List<Node> breathFirstList = new ArrayList<>();
+        List<Node> queueList = new ArrayList<>();
+        queueList.add(parent);
+        breathFirstList.add(parent);
+        while(queueList.size() != 0) {
+            List<Tuple> tuples = getNeighbors(queueList.get(0));
+            tuples.forEach(tuple -> {
+                if(!breathFirstList.contains(tuple.getNode())) {
+                    breathFirstList.add(tuple.getNode());
+                    queueList.add(tuple.getNode());
+                }
+            });
+            queueList.remove(queueList.get(0));
+        }
+        return breathFirstList;
+    }
 }
