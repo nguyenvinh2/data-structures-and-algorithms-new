@@ -43,6 +43,8 @@ Data Structures
 
 4. [Hashtable](./challenges/Algorithms/src/main/java/DataStructures/Hashtable)
 
+5. [Graph](./challenges/Algorithms/src/main/java/DataStructures/Graph)
+
 Sorting Algorithms
 
 1. [Insertion Sort](./challenges/Algorithms/src/main/java/Sorting/InsertionSort)
