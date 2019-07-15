@@ -30,7 +30,7 @@ Challenges
 
 14. [Tree Intersection](./challenges/Algorithms/src/main/java/TreeIntersection)
 
-15. [Tree Intersection](./challenges/Algorithms/src/main/java/LeftJoin)
+15. [Left Join](./challenges/Algorithms/src/main/java/LeftJoin)
 
 
 Data Structures
