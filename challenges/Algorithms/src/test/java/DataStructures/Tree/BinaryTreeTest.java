@@ -251,14 +251,6 @@ public class BinaryTreeTest {
         assertEquals(expected, test.findMaximumValue(), 0);
     }
 
-    @Test
-    public void findMaxValueTestNull() {
-        BinaryTree test = new BinaryTree<Object>();
-        double expected = 15;
-
-        assertEquals(Double.MIN_VALUE, test.findMaximumValue(), 0);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void findMaxValueTestNonNumeric() {
         BinaryTree test = new BinaryTree<Object>("this");
