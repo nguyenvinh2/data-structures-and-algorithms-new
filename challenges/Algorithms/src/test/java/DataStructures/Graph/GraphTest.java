@@ -170,4 +170,121 @@ public class GraphTest {
         assertEquals(0,test.size());
     }
 
+    @Test
+    public void breadthFirstTest() {
+        Graph test = new Graph();
+        Node one = test.addNode("Node One");
+        Node two = test.addNode("Node Two");
+        Node three = test.addNode("Node Three");
+        Node four = test.addNode("Node Four");
+        Node five = test.addNode("Node Five");
+        Node six = test.addNode("Node Six");
+        Node seven = test.addNode("Node Seven");
+
+        test.addEdge(one, two, 1);
+        test.addEdge(one, three, 2);
+        test.addEdge(one, four, 3);
+        test.addEdge(one, five, 4);
+
+        test.addEdge(two, three, 5);
+        test.addEdge(two, four, 6);
+        test.addEdge(two, six, 7);
+        test.addEdge(two, seven, 8);
+
+        test.addEdge(three, seven, 8);
+
+        List<Node> result = test.breadthFirst(one);
+
+        assertEquals(one, result.get(0));
+        assertEquals(two, result.get(1));
+        assertEquals(three, result.get(2));
+        assertEquals(four, result.get(3));
+        assertEquals(five, result.get(4));
+        assertEquals(six, result.get(5));
+        assertEquals(seven, result.get(6));
+    }
+
+    @Test
+    public void breadthFirstTestCities() {
+        Graph test = new Graph();
+        Node pandora = test.addNode("Pandora");
+        Node arendelle = test.addNode("Arendelle");
+        Node metroville = test.addNode("Metroville");
+        Node monstropolis = test.addNode("Monstropolis");
+        Node narnia = test.addNode("Narnia");
+        Node naboo = test.addNode("Naboo");
+
+        test.addEdge(pandora, arendelle, 1);
+        test.addEdge(arendelle, metroville, 2);
+        test.addEdge(arendelle, monstropolis, 3);
+        test.addEdge(metroville, monstropolis, 4);
+        test.addEdge(metroville, narnia, 5);
+        test.addEdge(metroville, naboo, 6);
+        test.addEdge(monstropolis, naboo, 7);
+
+        List<Node> result = test.breadthFirst(pandora);
+
+        result.forEach(node -> System.out.println(node.value));
+
+        assertEquals(pandora, result.get(0));
+        assertEquals(arendelle, result.get(1));
+        assertEquals(metroville, result.get(2));
+        assertEquals(monstropolis, result.get(3));
+        assertEquals(narnia, result.get(4));
+        assertEquals(naboo, result.get(5));
+    }
+
+    @Test
+    public void breadthFirstTestCircular() {
+        Graph test = new Graph();
+        Node one = test.addNode("Node One");
+        Node two = test.addNode("Node Two");
+        Node three = test.addNode("Node Three");
+        Node four = test.addNode("Node Four");
+        Node five = test.addNode("Node Five");
+
+        test.addEdge(one, two, 0);
+        test.addEdge(one, three, 0);
+        test.addEdge(two, four, 0);
+        test.addEdge(four, five, 0);
+        test.addEdge(three, five, 0);
+
+        List<Node> result = test.breadthFirst(one);
+
+        assertEquals(one, result.get(0));
+        assertEquals(two, result.get(1));
+        assertEquals(three, result.get(2));
+        assertEquals(four, result.get(3));
+        assertEquals(five, result.get(4));
+    }
+
+
+    @Test
+    public void breadthFirstTestUnconnected() {
+        Graph test = new Graph();
+        Node one = test.addNode("Node One");
+        Node two = test.addNode("Node Two");
+        Node three = test.addNode("Node Three");
+        Node four = test.addNode("Node Four");
+        Node five = test.addNode("Node Five");
+
+        test.addEdge(two, four, 0);
+        test.addEdge(four, five, 0);
+        test.addEdge(three, five, 0);
+
+        List<Node> result = test.breadthFirst(one);
+
+        assertEquals(one, result.get(0));
+        assertEquals(1, result.size());
+    }
+
+    @Test
+    public void breadthFirstTestNull() {
+        Graph test = new Graph();
+
+        List<Node> result = test.breadthFirst(null);
+
+        assertNull(result);
+    }
+
 }

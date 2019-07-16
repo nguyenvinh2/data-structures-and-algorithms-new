@@ -32,6 +32,7 @@ Challenges
 
 15. [Left Join](./challenges/Algorithms/src/main/java/LeftJoin)
 
+16. [Breadth First Graph](./challenges/Algorithms/src/main/java/BreadthFirstGraph)
 
 Data Structures
 
