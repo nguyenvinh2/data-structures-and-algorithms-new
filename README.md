@@ -34,7 +34,6 @@ Challenges
 
 16. [Breadth First Graph](./challenges/Algorithms/src/main/java/BreadthFirstGraph)
 
-
 Data Structures
 
 1. [Linked List](./challenges/Algorithms/src/main/java/DataStructures/LinkedList)
