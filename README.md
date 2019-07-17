@@ -34,6 +34,8 @@ Challenges
 
 16. [Breadth First Graph](./challenges/Algorithms/src/main/java/BreadthFirstGraph)
 
+17. [Get Edge](./challenges/Algorithms/src/main/java/GetEdge)
+
 
 Data Structures
 

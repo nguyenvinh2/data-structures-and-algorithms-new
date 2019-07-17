@@ -28,7 +28,7 @@ direct flights, and how much it would cost.
       
      
       Time: 
-      O(n) - nested for loops
+      O(n^2) - nested for loops
 
 
 ## Solution:
