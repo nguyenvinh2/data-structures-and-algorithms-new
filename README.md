@@ -36,7 +36,6 @@ Challenges
 
 17. [Get Edge](./challenges/Algorithms/src/main/java/GetEdge)
 
-
 Data Structures
 
 1. [Linked List](./challenges/Algorithms/src/main/java/DataStructures/LinkedList)
