@@ -36,6 +36,7 @@ Challenges
 
 17. [Get Edge](./challenges/Algorithms/src/main/java/GetEdge)
 
+18. [Depth First](./challenges/Algorithms/src/main/java/DepthFirst)
 
 Data Structures
 
